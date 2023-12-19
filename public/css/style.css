@@ -1,0 +1,16 @@
+/* background navbar */
+nav{
+    background-color: #FFF0E2;
+}
+
+/* ini untuk navbarnya */
+nav ul li a {
+    color: #7F5B38 !important;
+    font-family: Poppins, sans-serif;
+    text-shadow: 0 0 1px !important;
+}
+
+/* hover untuk navigasinya */
+nav ul li:hover a {
+    color: #332416 !important;
+}

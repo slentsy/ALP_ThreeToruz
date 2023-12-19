@@ -7,37 +7,52 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+        
         <title>Donut</title>
+
+        <!-- G-FONT -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jacques+Francois&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&family=Jacques+Francois&display=swap" rel="stylesheet">
+        <!-- poppins extrabold -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&family=Jacques+Francois&family=Poppins:wght@800&display=swap" rel="stylesheet">
+        <!-- inter bold -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Itim&family=Jacques+Francois&family=Poppins:wght@800&display=swap" rel="stylesheet">
+        <!-- AKHIR G-FONT -->
+
+        <!-- panggil css file di dalam laravel -->
+        <link rel="stylesheet" href="/css/style.css">
+        <!-- akhir panggil css file di dalam laravel -->
+
     </head>
   <body>
 
     <!-- awal Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top mb-5">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top mb-5">
         <!-- akhir logo three toruz -->
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{asset('image/IMG_8743.PNG')}}" alt="" width="80" height="60">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/">HOME</a>
                     </li>
                     <li class="nav-item {{ request()->is('product') ? 'active' : '' }}">
-                        <a class="nav-link" href="product">Product</a>
+                        <a class="nav-link" href="product">PRODUCT</a>
                     </li>
                     <li class="nav-item {{ request()->is('promo') ? 'active' : '' }}">
-                        <a class="nav-link" href="promo">Promo</a>
+                        <a class="nav-link" href="promo">PROMO</a>
                     </li>
                     <li class="nav-item {{ request()->is('article') ? 'active' : '' }}">
-                        <a class="nav-link" href="article">Article</a>
+                        <a class="nav-link" href="article">ARTICLE</a>
                     </li>
                     <li class="nav-item {{ request()->is('aboutUs') ? 'active' : '' }}">
-                        <a class="nav-link" href="aboutUs">About Us</a>
+                        <a class="nav-link" href="aboutUs">ABOUT US</a>
                     </li>
                 </ul>
             </div>
@@ -49,9 +64,6 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-
 
     <!-- Javascriptnya -->
     <!-- Option 2: Separate Popper and Bootstrap JS -->
