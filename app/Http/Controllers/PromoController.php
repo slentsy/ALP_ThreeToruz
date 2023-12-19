@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
+use App\Models\Promo;
+use App\Http\Requests\StorePromoRequest;
+use App\Http\Requests\UpdatePromoRequest;
 
-
-//>>>>>>> sophia
-use App\Http\Requests\StoreProdukRequest;
-use App\Http\Requests\UpdateProdukRequest;
-
-class ProdukController extends Controller
+class PromoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,7 +27,7 @@ class ProdukController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProdukRequest $request)
+    public function store(StorePromoRequest $request)
     {
         //
     }
@@ -38,7 +35,7 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Produk $produk)
+    public function show(Promo $promo)
     {
         //
     }
@@ -46,7 +43,7 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Produk $produk)
+    public function edit(Promo $promo)
     {
         //
     }
@@ -54,7 +51,7 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProdukRequest $request, Produk $produk)
+    public function update(UpdatePromoRequest $request, Promo $promo)
     {
         //
     }
@@ -62,7 +59,7 @@ class ProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produk $produk)
+    public function destroy(Promo $promo)
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Produk;
+use App\Models\Article;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class ProdukPolicy
+class ArticlePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class ProdukPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Produk $produk): bool
+    public function view(User $user, Article $article): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class ProdukPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Produk $produk): bool
+    public function update(User $user, Article $article): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class ProdukPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Produk $produk): bool
+    public function delete(User $user, Article $article): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ProdukPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Produk $produk): bool
+    public function restore(User $user, Article $article): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ProdukPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Produk $produk): bool
+    public function forceDelete(User $user, Article $article): bool
     {
         //
     }
