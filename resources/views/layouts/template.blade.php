@@ -39,19 +39,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1)=== null ? 'active' : '' }}">
                         <a class="nav-link" href="/">HOME</a>
                     </li>
-                    <li class="nav-item {{ request()->is('product') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1)=='product' ? 'active' : '' }}">
                         <a class="nav-link" href="product">PRODUCT</a>
                     </li>
-                    <li class="nav-item {{ request()->is('promo') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1)=='promo' ? 'active' : '' }}">
                         <a class="nav-link" href="promo">PROMO</a>
                     </li>
-                    <li class="nav-item {{ request()->is('article') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1)=='article' ? 'active' : ''  }}">
                         <a class="nav-link" href="article">ARTICLE</a>
                     </li>
-                    <li class="nav-item {{ request()->is('aboutUs') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1)=='aboutUs' ? 'active' : '' }}">
                         <a class="nav-link" href="aboutUs">ABOUT US</a>
                     </li>
                 </ul>
@@ -63,11 +63,11 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
     <!-- Javascriptnya -->
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
    
   </body>

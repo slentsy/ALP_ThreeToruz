@@ -14,3 +14,8 @@ nav ul li a {
 nav ul li:hover a {
     color: #332416 !important;
 }
+
+/* styling untuk navbar yang aktif */
+nav ul li.active a {
+    color: #332416 !important;
+}

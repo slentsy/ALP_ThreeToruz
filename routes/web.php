@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 // homepage
 Route::get('/', function () {
     return view('homepage', 
-    [
-        "pagetitle" => "Homepage",
-        "maintitle" => "Halaman homepage"
-    ]
+        [
+            "pagetitle" => "Homepage",
+            "maintitle" => "Homepage"
+        ]
     );
 });
 
