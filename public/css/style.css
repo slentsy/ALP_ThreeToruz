@@ -1,6 +1,9 @@
+/* CSS FOR TEMPLATE */
 /* background navbar */
-nav{
+.nav-template{
     background-color: #FFF0E2;
+    width: 100%;
+    top: 0;
 }
 
 /* ini untuk navbarnya */
@@ -19,3 +22,46 @@ nav ul li:hover a {
 nav ul li.active a {
     color: #332416 !important;
 }
+
+/* untuk mengatur margin top navbar supaya content tidak tertutup */
+#layout-content-container{
+    margin-top: 0;
+}
+
+/* END CSS FOR TEMPLATE */
+
+
+/* CSS FOR ABOUT US PAGE */
+/* untuk atur headernya*/
+
+.jumbotron .display-4{
+    font-family: Poppins, sans-serif;
+    color: #332416
+}
+
+.jumbotron {
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+    background-color: #CC9259 !important;
+}
+
+.feature-item {
+    background-color: antiquewhite !important;
+    
+}
+
+h5.text-white{
+    color: #7F5B38 !important;
+}
+
+.have-border{
+    border-color: black;
+}
+
+.caption-aboutUs {
+    font-family: Jacques Francois;
+    text-align: justify;
+}
+
+
+/* END CSS FOR ABOUT US PAGE */

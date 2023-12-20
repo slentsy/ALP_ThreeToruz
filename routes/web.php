@@ -25,20 +25,36 @@ Route::get('/', function () {
 
 // product
 Route::get('product', function () {
-    return view('product');
+    return view('product',
+        [
+            "pagetitle" => "Our Product🍩",
+        ]
+    );
 });
 
 // promo
 Route::get('promo', function () {
-    return view('promo');
+    return view('promo',
+        [
+            "pagetitle" => "Sale📢",
+        ]
+    );
 });
 
 // article
 Route::get('article', function () {
-    return view('article');
+    return view('article',
+        [
+            "pagetitle" => "Read Me📖",
+        ]
+    );
 });
 
 // about us
 Route::get('aboutUs', function () {
-    return view('aboutUs');
+    return view('aboutUs',
+        [
+            "pagetitle" => "About Us🤗",
+        ]
+    );
 });

@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         
-        <title>Donut</title>
+        <title>{{$pagetitle}}</title>
 
         <!-- G-FONT -->
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jacques+Francois&display=swap" rel="stylesheet">
@@ -27,11 +27,11 @@
   <body>
 
     <!-- awal Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top mb-5">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top nav-template">
         <!-- akhir logo three toruz -->
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{asset('image/IMG_8743.PNG')}}" alt="" width="80" height="60">
+                <img src="{{asset('image/IMG_8743.PNG')}}" alt="" width="80" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,15 @@
         </div>
     </nav>
     <!-- akhir navbar -->
+
+    <!-- Bagian isi dari tiap page -->
+    <div id="layout-content-container">
+        <!-- Content here -->
+
+        @yield('layout_content')
+
+    </div>
+    <!-- Akhir isi dari tiap page -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
