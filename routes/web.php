@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // homepage
 Route::get('/', function () {
-    return view('homepage', 
+    return view('home page/homepage', 
         [
             "pagetitle" => "Homepage",
             "maintitle" => "Homepage"
@@ -25,20 +25,25 @@ Route::get('/', function () {
 
 // product
 Route::get('product', function () {
-    return view('product');
+    return view('product page/product');
 });
 
 // promo
 Route::get('promo', function () {
-    return view('promo');
+    return view('promo page/promo');
 });
 
 // article
 Route::get('article', function () {
-    return view('article');
+    return view('article page/article');
 });
 
 // about us
 Route::get('aboutUs', function () {
-    return view('aboutUs');
+    return view('about page/aboutUs');
+});
+
+// contact us
+Route::get('contact', function () {
+    return view('contact page/contact');
 });

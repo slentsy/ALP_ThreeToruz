@@ -54,6 +54,9 @@
                     <li class="nav-item {{ Request::segment(1)=='aboutUs' ? 'active' : '' }}">
                         <a class="nav-link" href="aboutUs">ABOUT US</a>
                     </li>
+                    <li class="nav-item {{ Request::segment(1)=='contact' ? 'active' : '' }}">
+                        <a class="nav-link" href="contact">CONTACT US</a>
+                    </li>
                 </ul>
             </div>
         </div>
