@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,26 @@ Route::get('/', function () {
     );
 });
 
+// about us
+Route::get('aboutUs', function () {
+    return view('about page/aboutUs');
+});
+
+// article
+Route::get('article', function () {
+    return view('article page/article');
+});
+
+// contact us
+Route::get('contact', function () {
+    return view('contact page/contact');
+});
+Route::get('contact', [MessageController::class, 'index'])->name('contact');
+Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
+
+
 // product
 Route::get('product', function () {
     return view('product page/product');
@@ -31,19 +52,4 @@ Route::get('product', function () {
 // promo
 Route::get('promo', function () {
     return view('promo page/promo');
-});
-
-// article
-Route::get('article', function () {
-    return view('article page/article');
-});
-
-// about us
-Route::get('aboutUs', function () {
-    return view('about page/aboutUs');
-});
-
-// contact us
-Route::get('contact', function () {
-    return view('contact page/contact');
 });

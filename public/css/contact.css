@@ -1,0 +1,21 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.jumbotron {
+    background-image: url('your-background-image.jpg'); /* replace 'your-background-image.jpg' with your image path */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* set text color to your preference */
+  
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.jumbotron h1 {
+    margin-bottom: 20px;
+}
