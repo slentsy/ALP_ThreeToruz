@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\MessageController;
+=======
+use App\Http\Controllers\PromoController;
+>>>>>>> origin/sophia
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,19 +28,59 @@ Route::get('/', function () {
     );
 });
 
+<<<<<<< HEAD
 // about us
 Route::get('aboutUs', function () {
     return view('about page/aboutUs');
+=======
+// product
+Route::get('product', function () {
+    return view('product',
+        [
+            "pagetitle" => "Our Product🍩",
+        ]
+    );
 });
+
+// promo
+Route::get('promo', function () {
+    return view('promo',
+        [
+            "pagetitle" => "Sale📢",
+        ]
+    );
+>>>>>>> origin/sophia
+});
+
+Route::get('/promo', [PromoController::class, 'index'])->name('promo');
+
+// akhir promo
 
 // article
 Route::get('article', function () {
+<<<<<<< HEAD
     return view('article page/article');
 });
 
 // contact us
 Route::get('contact', function () {
     return view('contact page/contact');
+=======
+    return view('article',
+        [
+            "pagetitle" => "Read Me📖",
+        ]
+    );
+});
+
+// about us
+Route::get('aboutUs', function () {
+    return view('aboutUs',
+        [
+            "pagetitle" => "About Us🤗",
+        ]
+    );
+>>>>>>> origin/sophia
 });
 Route::get('contact', [MessageController::class, 'index'])->name('contact');
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');

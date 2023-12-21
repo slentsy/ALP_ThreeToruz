@@ -13,5 +13,6 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         //
+        
     }
 }

@@ -14,6 +14,10 @@ class PromoController extends Controller
     public function index()
     {
         //
+        return view('promo', ['promos' => Promo::get()])->with([
+
+            "pagetitle" => "promo"
+        ]);
     }
 
     /**
