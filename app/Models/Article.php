@@ -11,7 +11,14 @@ class Article extends Model
 
     protected $fillable = 
     [
-        'artikel_id',
-        'produk_id'
+        'judul_article',
+        'deskripsi_article', 
+        'tanggal_publish'
     ];
+
+    // ini method untuk relasi article ke produk
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
 }

@@ -18,7 +18,22 @@ class Produk extends Model
         'deskripsi_produk', 
         // kategori_id nantinya akan otomatis terbuat
         // saat direlasikan
-        'kategori_id'
+        
 
     ];
+
+    // ini method untuk relasi produk dengan kategori
+    public function categories()
+    {
+        // mengembalikan relasi dari model Produk ke kategori
+        // model produk berelasi dengan model kategori
+        return $this->belongsTo(Categories::class);
+    }
+
+    // ini method untuk relasi article
+    public function article()
+    {
+        return $this->hasMany(Article::class);
+    }
+
 }

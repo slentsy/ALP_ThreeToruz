@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,10 @@ Route::get('promo', function () {
         ]
     );
 });
+
+Route::get('/promo', [PromoController::class, 'index'])->name('promo');
+
+// akhir promo
 
 // article
 Route::get('article', function () {

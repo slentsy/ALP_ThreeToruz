@@ -65,3 +65,24 @@ h5.text-white{
 
 
 /* END CSS FOR ABOUT US PAGE */
+
+/* CSS FOR PROMO PAGE */
+
+.promo-page{
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+    background-color: #CC9259;
+}
+
+.blog-start{
+    padding-top: 2rem;
+}
+
+
+/* END CSS FOR PROMO PAGE */
+
+/* CSS FOR PROMO PAGE  */
+
+.div-promo{
+    padding-top: 10rem;
+}
