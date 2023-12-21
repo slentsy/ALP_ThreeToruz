@@ -8,12 +8,9 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         
-<<<<<<< HEAD
-        
-        <title>Donut</title>
-=======
+
         <title>{{$pagetitle}}</title>
->>>>>>> origin/sophia
+
 
         <!-- G-FONT -->
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jacques+Francois&display=swap" rel="stylesheet">
@@ -68,13 +65,10 @@
     </nav>
     <!-- akhir navbar -->
 
-<<<<<<< HEAD
-     <!-- Bagian isi dari tiap page -->
-     <div id="layout-content-container">
-=======
+
     <!-- Bagian isi dari tiap page -->
     <div id="layout-content-container">
->>>>>>> origin/sophia
+
         <!-- Content here -->
 
         @yield('layout_content')

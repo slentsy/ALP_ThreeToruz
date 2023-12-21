@@ -14,9 +14,9 @@ class PromoController extends Controller
     public function index()
     {
         //
-        return view('promo', ['promos' => Promo::get()])->with([
-
-            "pagetitle" => "promo"
+        $promos = Promo::all(); // Ambil semua data promosi dari database
+        return view('promo page/promo', ['promos' => $promos])->with([
+            "pagetitle" => "promo📢"
         ]);
     }
 

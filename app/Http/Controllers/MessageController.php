@@ -15,7 +15,10 @@ class MessageController extends Controller
     public function index()
     {
         //
-        return view ('contact page/contact');
+        return view('contact page/contact', [
+            "pagetitle" => "Contact Us📞",
+        ]);
+
     }
 
     /**
