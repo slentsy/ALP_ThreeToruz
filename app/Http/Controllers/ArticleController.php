@@ -13,7 +13,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        //ambil data dari articles
+        $articles = Article::all();
+        return view('article page/article', ['articles' => $articles])->with([
+            "pagetitle" => "Read Me"
+        ]);
     }
 
     /**
@@ -21,7 +25,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        //menampilkan form untuk insert data 
+        return view('article page/create');
     }
 
     /**

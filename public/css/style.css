@@ -84,5 +84,28 @@ h5.text-white{
 /* CSS FOR PROMO PAGE  */
 
 .div-promo{
-    padding-top: 10rem;
+    padding-top: 8rem;
 }
+
+
+/* CSS FOR ARTICLE */
+.content-article{
+    padding-top: 4rem;
+}
+.kolom-gambar{
+    background-color: #4C3621;
+    padding: 3rem;
+}
+.kolom-tulisan{
+    background-color: #FFF7F0;
+    padding: 3rem;
+    text-align: left;
+}
+.gambar-artikel{
+    max-width: 80%;
+    height: 90%;
+}
+
+
+
+/* END CSS FOR ARTICLE */

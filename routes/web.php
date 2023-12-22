@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 // homepage
 Route::get('/', function () {
-    return view('home page/homepage', 
+    return view('home page/homepage',
         [
             "pagetitle" => "Homepage",
             "maintitle" => "Homepage"
@@ -27,23 +28,27 @@ Route::get('/', function () {
 
 // about us
 Route::get('aboutUs', function () {
-    return view('about page/aboutUs');
+    return view('about page/aboutUs',
+        [
+            "pagetitle" => "About Us🤗",
+        ]
+    );
 });
 
-// article
-Route::get('article', function () {
-    return view('article page/article');
-});
 
-// contact us
-Route::get('contact', function () {
-    return view('contact page/contact');
-});
+
+// ambil data article
+Route::get('/article', [ArticleController::class, 'index'])->name('article');
+Route::get('/article/create', [ArticleController::class, 'create']);
+Route::post('/article/store', [ArticleController::class, 'store']);
+// akhir dari article 
+
+
+//route for message (in contact page) logics
 Route::get('contact', [MessageController::class, 'index'])->name('contact');
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
-
-
+// akhir message
 
 // product
 Route::get('product', function () {
@@ -54,7 +59,6 @@ Route::get('product', function () {
     );
 });
 
+
 // promo
-Route::get('promo', function () {
-    return view('promo page/promo');
-});
+Route::get('/promo', [PromoController::class, 'index'])->name('promo');
