@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // homepage
 Route::get('/', function () {
-    return view('homepage', 
+    return view('home page/homepage', 
         [
             "pagetitle" => "Homepage",
             "maintitle" => "Homepage"
@@ -24,9 +25,29 @@ Route::get('/', function () {
     );
 });
 
+// about us
+Route::get('aboutUs', function () {
+    return view('about page/aboutUs');
+});
+
+// article
+Route::get('article', function () {
+    return view('article page/article');
+});
+
+// contact us
+Route::get('contact', function () {
+    return view('contact page/contact');
+});
+Route::get('contact', [MessageController::class, 'index'])->name('contact');
+Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
+
+
 // product
 Route::get('product', function () {
-    return view('product',
+    return view('product page/product',
         [
             "pagetitle" => "Our Product🍩",
         ]
@@ -35,31 +56,5 @@ Route::get('product', function () {
 
 // promo
 Route::get('promo', function () {
-    return view('promo',
-        [
-            "pagetitle" => "Sale📢",
-        ]
-    );
-});
-
-Route::get('/promo', [PromoController::class, 'index'])->name('promo');
-
-// akhir promo
-
-// article
-Route::get('article', function () {
-    return view('article',
-        [
-            "pagetitle" => "Read Me📖",
-        ]
-    );
-});
-
-// about us
-Route::get('aboutUs', function () {
-    return view('aboutUs',
-        [
-            "pagetitle" => "About Us🤗",
-        ]
-    );
+    return view('promo page/promo');
 });

@@ -8,6 +8,7 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         
+        
         <title>{{$pagetitle}}</title>
 
         <!-- G-FONT -->
@@ -54,6 +55,9 @@
                     <li class="nav-item {{ Request::segment(1)=='aboutUs' ? 'active' : '' }}">
                         <a class="nav-link" href="aboutUs">ABOUT US</a>
                     </li>
+                    <li class="nav-item {{ Request::segment(1)=='contact' ? 'active' : '' }}">
+                        <a class="nav-link" href="contact">CONTACT US</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -62,6 +66,15 @@
 
     <!-- Bagian isi dari tiap page -->
     <div id="layout-content-container">
+        <!-- Content here -->
+
+        @yield('layout_content')
+
+    </div>
+    <!-- Akhir isi dari tiap page -->
+
+     <!-- Bagian isi dari tiap page -->
+     <div id="layout-content-container">
         <!-- Content here -->
 
         @yield('layout_content')
