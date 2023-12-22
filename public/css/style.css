@@ -28,6 +28,22 @@ nav ul li.active a {
     margin-top: 0;
 }
 
+/* FOOTER */
+
+footer{
+    background-color: #332416;
+    color: white;
+}
+
+.icon, a{
+    color: #FFFFFF;
+}
+
+h3{
+    color: #FFFFFF;
+    font-family: Poppins, sans-serif;
+}
+
 /* END CSS FOR TEMPLATE */
 
 

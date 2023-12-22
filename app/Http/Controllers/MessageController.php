@@ -43,7 +43,7 @@ class MessageController extends Controller
             'message_pesan'=>$request->message_pesan
         ]);
 
-        return redirect()->route('contact');
+        return redirect()->route('contact')->with('status', 'message-sent');
     }
 
     /**

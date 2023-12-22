@@ -19,3 +19,27 @@ body, html {
 .jumbotron h1 {
     margin-bottom: 20px;
 }
+
+.card p, h5{
+    color: black;
+}
+
+h5{
+    font-weight: bold;
+}
+
+.card{
+    background-color: #FFF0E2;
+}
+
+.btn{
+    background-color: #332416;
+    color: white;
+    border: #332416;
+}
+
+.btn:hover{
+    color: #332416;
+    background-color: #FFC58C;
+    
+}
