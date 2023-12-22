@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// homepage
 Route::get('/', function () {
-    return view('welcome');
+    return view('home page/homepage',
+        [
+            "pagetitle" => "Homepage",
+            "maintitle" => "Homepage"
+        ]
+    );
 });
+
+// about us
+Route::get('aboutUs', function () {
+    return view('about page/aboutUs',
+        [
+            "pagetitle" => "About Us🤗",
+        ]
+    );
+});
+
+// article
+Route::get('article', function () {
+    return view('article page/article',
+        [
+            "pagetitle" => "Read Me📖",
+        ]
+    );
+});
+
+
+//route for message (in contact page) logics
+Route::get('contact', [MessageController::class, 'index'])->name('contact');
+Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
+
+// product
+Route::get('product', function () {
+    return view('product page/product',
+        [
+            "pagetitle" => "Our Product🍩",
+        ]
+    );
+});
+
+
+// promo
+Route::get('/promo', [PromoController::class, 'index'])->name('promo');

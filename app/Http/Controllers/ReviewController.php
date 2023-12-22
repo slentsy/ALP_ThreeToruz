@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
+use App\Models\Review;
+use App\Http\Requests\StoreReviewRequest;
+use App\Http\Requests\UpdateReviewRequest;
 
-
-//>>>>>>> sophia
-use App\Http\Requests\StoreProdukRequest;
-use App\Http\Requests\UpdateProdukRequest;
-
-class ProdukController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,7 +27,7 @@ class ProdukController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProdukRequest $request)
+    public function store(StoreReviewRequest $request)
     {
         //
     }
@@ -38,7 +35,7 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Produk $produk)
+    public function show(Review $review)
     {
         //
     }
@@ -46,7 +43,7 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Produk $produk)
+    public function edit(Review $review)
     {
         //
     }
@@ -54,7 +51,7 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProdukRequest $request, Produk $produk)
+    public function update(UpdateReviewRequest $request, Review $review)
     {
         //
     }
@@ -62,7 +59,7 @@ class ProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produk $produk)
+    public function destroy(Review $review)
     {
         //
     }
