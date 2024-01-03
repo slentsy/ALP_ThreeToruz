@@ -69,35 +69,36 @@
 
             </div>
             {{-- LEAVE A MESSAGE --}}
-            <div class="container p-3 mt-5">
+            <div class="container shadow bg-white rounded p-3 mt-5 mb-5">
                 <div>
-                    <h2 class="mb-2 text-center">Leave us a message📝</h2>
+                    <h2 class="mb-4 text-center" style="color: #332416; font-family: Jacques Francois; color: #332416;">Leave us a message📝</h2>
                     <form method="POST" action="{{ route('message.store') }}" class="w-75 mx-auto ">
                         @csrf
                         <div class="mb-3 text-left">
-                            <label for="message_nama" class="form-label ">Full Name</label>
+                            <label for="message_nama" class="form-label" style="color: #332416;">Full Name</label>
                             <input type="text" class="form-control" id ="message_nama" name="message_nama"
                                 placeholder="Name" required>
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="message_email" class="form-label text-left">Your E-mail Address</label>
+                            <label for="message_email" class="form-label text-left" style="color: #332416;"> Your E-mail Address</label>
                             <input type="email" class="form-control" id ="message_email" name="message_email"
                                 placeholder="Email" required>
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="message_nomor_hp" class="form-label text-left">Phone Number (optional)</label>
+                            <label for="message_nomor_hp" class="form-label text-left" style="color: #332416;">Phone Number (optional)</label>
                             <input type="tel" class="form-control" id ="message_nomor_hp" name="message_nomor_hp"
                                 placeholder="Phone Number">
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="message_pesan" class="form-label text-left">Message</label>
+                            <label for="message_pesan" class="form-label text-left" style="color: #332416;">Message</label>
                             <textarea class="form-control" id= "message_pesan" name="message_pesan" rows="3" placeholder="Message" required></textarea>
                         </div>
 
                         <div class="alert alert-success mt-3" id="success-message" style="display:none;">
                             Your message has been sent!
                         </div>
-                        <button name="button_add" type="submit" class="btn btn-primary">Send</button>
+                        
+                        <button name="button_add" type="submit" class="w-100 btn btn-primary">Send</button>
                     </form>
                 </div>
             </div>

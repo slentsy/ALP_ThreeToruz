@@ -6,6 +6,20 @@
     top: 0;
 }
 
+.btn{
+    background-color: #CC9259;
+    color: white;
+    border: #332416;
+}
+
+.btn:hover{
+    color: #fff;
+    background-color: #332416;
+    
+}
+
+
+
 /* ini untuk navbarnya */
 nav ul li a {
     color: #7F5B38 !important;
@@ -41,11 +55,26 @@ footer{
 
 h3{
     color: #FFFFFF;
-    font-family: Poppins, sans-serif;
+    font-family: Jacques Francois;
 }
 
 /* END CSS FOR TEMPLATE */
 
+/* CSS FOR HOME PAGE */
+.display-4{
+    font-family: Poppins, sans-serif;
+    color: #FFB770;
+    border-color: #332416;
+    border-radius: 2px;
+    -webkit-text-stroke: 3px #332416; /* Properti untuk border text di browser Webkit (Chrome, Safari, dll.) */
+}
+
+.display-6{
+    font-family: Jacques Francois;
+    color: #332416;
+}
+
+/* END CSS FOR HOME PAGE */
 
 /* CSS FOR ABOUT US PAGE */
 /* untuk atur headernya*/
@@ -54,6 +83,7 @@ h3{
     font-family: Poppins, sans-serif;
     color: #332416
 }
+
 
 .jumbotron {
     padding-top: 8rem;

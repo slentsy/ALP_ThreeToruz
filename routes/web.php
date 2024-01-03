@@ -35,6 +35,14 @@ Route::get('aboutUs', function () {
     );
 });
 
+Route::get('adminDashboard', function () {
+    return view('admin page/dashboard',
+        [
+            "pagetitle" => "admin side💻",
+        ]
+    );
+});
+
 // article
 Route::get('article', function () {
     return view('article page/article',
@@ -56,6 +64,15 @@ Route::get('product', function () {
     return view('product page/product',
         [
             "pagetitle" => "Our Product🍩",
+        ]
+    );
+});
+
+// product
+Route::get('productDetail', function () {
+    return view('product page/detail',
+        [
+            "pagetitle" => "Product Detail🍩",
         ]
     );
 });
