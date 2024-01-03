@@ -188,9 +188,9 @@
                                                     alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Oreo Cookie</div>
+                                                style="top: 10px; left: 10px;">ACE</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>ACE</h4>
+                                                <h4>Oreo Cookie</h4>
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te
                                                     incididunt</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
