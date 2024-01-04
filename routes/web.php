@@ -36,13 +36,6 @@ Route::get('aboutUs', function () {
     );
 });
 
-Route::get('adminDashboard', function () {
-    return view('admin page/dashboard',
-        [
-            "pagetitle" => "admin side💻",
-        ]
-    );
-});
 
 // article
 Route::get('article', function () {
@@ -57,7 +50,7 @@ Route::get('article', function () {
 Route::get('/banner/read', [BannerController::class, 'index'])->name('banner');
 Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store');
 
-//route for message (in contact page) logics
+//route for message (in contact page)
 Route::get('contact', [MessageController::class, 'index'])->name('contact');
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');

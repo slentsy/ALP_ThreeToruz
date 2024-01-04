@@ -71,8 +71,8 @@
                     <li class="nav-item {{ Request::segment(1) == 'contact' ? 'active' : '' }}">
                         <a class="nav-link" href="contact">CONTACT US</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1) == 'adminDashboard' ? 'active' : '' }}">
-                        <a class="nav-link" href="adminDashboard">ADMIN</a>
+                    <li class="nav-item {{ Request::segment(1) == '/banner/read' ? 'active' : '' }}">
+                        <a class="nav-link" href="/banner/read">ADMIN</a>
                     </li>
                 </ul>
             </div>
