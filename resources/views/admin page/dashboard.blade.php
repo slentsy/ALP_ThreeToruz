@@ -40,16 +40,30 @@
     <div class="col-lg-12" style="padding: 100px;">
         <nav>
             <div class="nav nav-tabs mb-3">
+                {{-- CRUD FOR HOME BANNER --}}
                 <button class="nav-link border-white border-bottom-0 active" type="button" role="tab"
                     id="nav-homeBanner-tab" data-bs-toggle="tab" data-bs-target="#nav-homeBanner"
                     aria-controls="nav-homeBanner" aria-selected="true">Home Banner</button>
+                {{-- CRUD FOR PRODUCTS --}}
                 <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-product-tab"
                     data-bs-toggle="tab" data-bs-target="#nav-product" aria-controls="nav-product"
                     aria-selected="false">Product</button>
+                {{-- ONLY DELETE, READ CUSTOMER REVIEWS --}}
+                <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-review-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-review" aria-controls="nav-review"
+                    aria-selected="false">Customer Reviews</button>
+                {{-- CRUD FOR CATEGORY --}}
                 <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-category-tab"
                     data-bs-toggle="tab" data-bs-target="#nav-category" aria-controls="nav-category"
                     aria-selected="false">Category</button>
-
+                {{-- CRUD FOR PROMO --}}
+                <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-promo-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-promo" aria-controls="nav-promo"
+                    aria-selected="false">Promo</button>
+                {{-- CRUD FOR ARTICLE --}}
+                <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-article-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-article" aria-controls="nav-article"
+                    aria-selected="false">Article</button>
             </div>
         </nav>
         <div class="tab-content mb-5">
@@ -65,9 +79,9 @@
                                         <h2>Manage <b>Banner Home Page</b></h2>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-                                                class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
+                                        <a href="#createHomeBanner" class="btn btn-success" data-toggle="modal"><i
+                                                class="material-icons">&#xE147;</i> <span>Add New Home Banner</span></a>
+                                        <a href="#deleteHomeBanner" class="btn btn-danger" data-toggle="modal"><i
                                                 class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                                     </div>
                                 </div>
@@ -81,43 +95,45 @@
                                                 <label for="selectAll"></label>
                                             </span>
                                         </th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
+                                        <th>Picture</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                                <label for="checkbox1"></label>
-                                            </span>
-                                        </td>
-                                        <td>Thomas Hardy</td>
-                                        <td>thomashardy@mail.com</td>
-                                        <td>89 Chiaroscuro Rd, Portland, USA</td>
-                                        <td>(171) 555-2222</td>
-                                        <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i
-                                                    class="material-icons" data-toggle="tooltip"
-                                                    title="Edit">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
-                                                    class="material-icons" data-toggle="tooltip"
-                                                    title="Delete">&#xE872;</i></a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($banners as $banner)
+                                        <tr>
+                                            <td>
+                                                <span class="custom-checkbox">
+                                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                                    <label for="checkbox1"></label>
+                                                </span>
+                                            </td>
+                                            <td><img class="img-fluid w-25"
+                                                    src="{{ asset('storage/' . $banner->banner_pict) }}" /></td>
+                                            <td class="w-25">{{ $banner->banner_judul }}</td>
+                                            <td class="w-25">{{ $banner->banner_deskripsi }}</td>
+                                            <td>
+                                                <a href="#editHomeBanner" class="edit" data-toggle="modal"><i
+                                                        class="material-icons" data-toggle="tooltip"
+                                                        title="Edit">&#xE254;</i></a>
+                                                <a href="#deleteHomeBanner" class="delete" data-toggle="modal"><i
+                                                        class="material-icons" data-toggle="tooltip"
+                                                        title="Delete">&#xE872;</i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                             <div class="clearfix">
                                 <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                                 <ul class="pagination">
                                     <li class="page-item disabled"><a href="#">Previous</a></li>
-                                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
                                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                    <li class="page-item"><a href="#" class="page-link">3</a></li>
                                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                                     <li class="page-item"><a href="#" class="page-link">5</a></li>
                                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
@@ -126,35 +142,32 @@
                         </div>
                     </div>
                 </div>
-                <!-- Edit Modal HTML -->
-                <div id="addEmployeeModal" class="modal fade">
+                <!-- Create Modal HTML -->
+                <div id="createHomeBanner" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form action="/uploads" enctype="multipart/form-data" method="POST">
+                            <form action="{{ route('banner.store') }}" enctype="multipart/form-data" method="POST">
+                                @csrf
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Add Employee</h4>
+                                    <h4 class="modal-title">Add New Home Banner</h4>
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
                                 </div>
                                 <div class="modal-body">
                                     {{ csrf_field() }}
-                                    <p>
-                                        <label for="photo">
-                                            <input type="file" name="photo" id="photo">
-                                        </label>
-                                    </p>
-                                    <button>Upload</button>
                                     <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" required>
+                                        <label for="banner_pict" class="form-label">Upload Home Banner Image</label>
+                                        <input class="form-control" type="file" name="banner_pict" id="banner_pict"
+                                            accept="image/jpg, image/png, image/jpeg" onchange="previewImage()" required>
+                                        <img class="img-preview img-fluid mb-3 col-sm-5" src="" alt="">
                                     </div>
                                     <div class="form-group">
-                                        <label>Address</label>
-                                        <textarea class="form-control" required></textarea>
+                                        <label label for="banner_judul" class="form-label">Banner Title</label>
+                                        <input type="text" class="form-control" name="banner_judul">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="text" class="form-control" required>
+                                        <label label for="banner_deskripsi" class="form-label">Banner Description</label>
+                                        <textarea class="form-control" name="banner_deskripsi"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -165,8 +178,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Edit Modal HTML -->
-                <div id="editEmployeeModal" class="modal fade">
+                <!-- Update Modal HTML -->
+                <div id="editHomeBanner" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form>
@@ -202,12 +215,12 @@
                     </div>
                 </div>
                 <!-- Delete Modal HTML -->
-                <div id="deleteEmployeeModal" class="modal fade">
+                <div id="deleteHomeBanner" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form>
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Delete Employee</h4>
+                                    <h4 class="modal-title">Delete Home Banner</h4>
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
                                 </div>
@@ -286,9 +299,9 @@
                                 <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                                 <ul class="pagination">
                                     <li class="page-item disabled"><a href="#">Previous</a></li>
-                                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
                                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                    <li class="page-item"><a href="#" class="page-link">3</a></li>
                                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                                     <li class="page-item"><a href="#" class="page-link">5</a></li>
                                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
@@ -404,4 +417,22 @@
             </div>
         </div>
     </div>
+
+
+    {{-- javascript for input image preview --}}
+    <script>
+        function previewImage() {
+            const image = document.querySelector('#banner_pict');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const ofReader = new FileReader();
+            ofReader.readAsDataURL(image.files[0]);
+
+            ofReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 @endsection

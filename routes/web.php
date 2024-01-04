@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,9 @@ Route::get('article', function () {
     );
 });
 
+//banner feature
+Route::get('/banner/read', [BannerController::class, 'index'])->name('banner');
+Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store');
 
 //route for message (in contact page) logics
 Route::get('contact', [MessageController::class, 'index'])->name('contact');

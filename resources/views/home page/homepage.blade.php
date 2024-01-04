@@ -28,6 +28,7 @@
                     <p class="mb-5" alt="Banner's description">Donat Ubi Surabaya.</p>
                 </div>
             </div>
+            
             <div class="carousel-item c-item">
                 <img src="{{ asset('image/padangGurun.jpg') }}" class="d-block w-100 c-img" alt="banner lainnya">
             </div>
