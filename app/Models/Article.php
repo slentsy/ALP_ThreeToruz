@@ -13,7 +13,8 @@ class Article extends Model
     [
         'judul_article',
         'deskripsi_article', 
-        'tanggal_publish'
+        'tanggal_publish', 
+        'gambar'
     ];
 
     // ini method untuk relasi article ke produk

@@ -13,9 +13,11 @@
                 <div class="col-md-6 left-column kolom-tulisan">
                     <h2 class="text">{{ $article->judul_article}}</h2>
                     <p class="text">{{ $article->deskripsi_article}}</p>
-                    <a href="/article/create">Add Article</a>
+                    <!-- Tautan untuk menambah artikel -->
+                    <div class="text-center mt-3">
+                        <a href="/article/create" class="btn btn-primary">Add Article</a>
+                    </div>
                 </div>
-                
             </div>
         @endforeach
     </div>

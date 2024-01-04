@@ -18,6 +18,10 @@ class MessageController extends Controller
         return view ('contact page/contact')->with([
             "pagetitle" => "Contact Us📱"
         ]);
+        return view('contact page/contact', [
+            "pagetitle" => "Contact Us📞",
+        ]);
+
     }
 
     /**
@@ -42,7 +46,7 @@ class MessageController extends Controller
             'message_pesan'=>$request->message_pesan
         ]);
 
-        return redirect()->route('contact');
+        return redirect()->route('contact')->with('status', 'message-sent');
     }
 
     /**

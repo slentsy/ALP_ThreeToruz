@@ -33,7 +33,8 @@ class ArticleSeeder extends Seeder
                                     Karena banyak yang suka dan mereka mengatakan donut nya sudah semua, 
                                     tanpa ada kekurangan. Para Owner pun yakin untuk produksi Infinite Horizon 
                                     lebih banyak melalui sistem Pre-Order😋",
-            'tanggal_publish' => $tanggalPublish
+            'tanggal_publish' => $tanggalPublish, 
+            'gambar' => asset('images/articles/Infinite Horizon.png')
         ]);
     }
 }

@@ -41,6 +41,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    @auth
+                    
+                    @endauth
                     <li class="nav-item {{ Request::segment(1)=== null ? 'active' : '' }}">
                         <a class="nav-link" href="/">HOME</a>
                     </li>
@@ -64,18 +67,6 @@
         </div>
     </nav>
     <!-- akhir navbar -->
-
-    <!-- Bagian isi dari tiap page -->
-    <div id="layout-content-container">
-        <!-- Content here -->
-
-        @yield('layout_content')
-
-    </div>
-    <!-- Akhir isi dari tiap page -->
-
-     <!-- Bagian isi dari tiap page -->
-     <div id="layout-content-container">
 
     <!-- Bagian isi dari tiap page -->
     <div id="layout-content-container">

@@ -29,7 +29,6 @@ nav ul li.active a {
 }
 
 /* FOOTER */
-
 footer{
     background-color: #332416;
     color: white;
@@ -43,13 +42,11 @@ h3{
     color: #FFFFFF;
     font-family: Poppins, sans-serif;
 }
-
-/* END CSS FOR TEMPLATE */
+/* END CSS FOR footer */
 
 
 /* CSS FOR ABOUT US PAGE */
 /* untuk atur headernya*/
-
 .jumbotron .display-4{
     font-family: Poppins, sans-serif;
     color: #332416
@@ -78,12 +75,10 @@ h5.text-white{
     font-family: Jacques Francois;
     text-align: justify;
 }
-
-
 /* END CSS FOR ABOUT US PAGE */
 
-/* CSS FOR PROMO PAGE */
 
+/* CSS FOR PROMO PAGE */
 .promo-page{
     padding-top: 8rem;
     padding-bottom: 3rem;
@@ -93,16 +88,13 @@ h5.text-white{
 .blog-start{
     padding-top: 2rem;
 }
-
-
 /* END CSS FOR PROMO PAGE */
 
-/* CSS FOR PROMO PAGE  */
 
+/* CSS FOR PROMO PAGE  */
 .div-promo{
     padding-top: 8rem;
 }
-
 
 /* CSS FOR ARTICLE */
 .content-article{
@@ -121,7 +113,31 @@ h5.text-white{
     max-width: 80%;
     height: 90%;
 }
-
-
-
 /* END CSS FOR ARTICLE */
+
+
+/* CSS FOR PROMO */
+.content-promo{
+    max-width: 80%;
+    height: 90%;
+    padding-top: 8rem;
+    text-align: center;
+    
+}
+
+.gambar-promo{
+    display: block;
+    align-items:center;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 2rem;
+}
+
+.promo-title{
+    padding-bottom: 2rem;
+}
+
+.form-search{
+    padding-bottom: 1rem;
+}
+/* end css promo */

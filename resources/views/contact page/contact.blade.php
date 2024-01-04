@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/contact.css">
     <!-- akhir panggil css file di dalam laravel -->
 
-    {{-- JUMBOTRON --}}
+   
     <section id="contact" class="jumbotron">
         <div class="d-flex flex-row p-5">
             <div class="container p-5">
@@ -68,7 +68,7 @@
                 </div>
 
             </div>
-            {{-- LEAVE A MESSAGE --}}
+            
             <div class="container p-3 mt-5">
                 <div>
                     <h2 class="mb-2 text-center">Leave us a message📝</h2>
@@ -101,13 +101,12 @@
                     </form>
                 </div>
             </div>
-            {{-- END OF LEAVE A MESSAGE --}}
+           
         </div>
     </section>
-    {{-- END OF JUMBOTRON - -}}
+    
 
     
-    {{-- --}}
     <script>
         // Fungsi untuk menampilkan pesan setelah formulir terkirim
         function showMessage() {
@@ -118,5 +117,6 @@
         @if(session('status') == 'message-sent')
             showMessage();
         @endif
+        //ini sbenarnya ga error, cuma ga terdeteksi javascript nya
     </script>
 @endsection

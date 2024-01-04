@@ -2,22 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Promo;
+
 use App\Http\Requests\StorePromoRequest;
 use App\Http\Requests\UpdatePromoRequest;
+use App\Models\Promo;
+use Illuminate\Http\Request;
 
 class PromoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $promos = Promo::all(); // Ambil semua data promosi dari database
+        if ($request->has('search')){
+            // untuk membatasi data yang dicari sebanyak 5
+            // withQueryString berfungsi untuk kembali berfungsi ke halaman selanjutnya
+            $promos = Promo::where('nama_promo','like','%'.$request->search.'%')->orWhere('nama_promo','like','%'.$request->search.'%')->paginate(5)->withQueryString();
+        } else{
+            // untuk melihat data sebanyak 5 saja 
+            $promos = Promo::paginate(5); // Ambil semua data promosi dari database
+        }
+        
         return view('promo page/promo', ['promos' => $promos])->with([
             "pagetitle" => "promo📢"
         ]);
+
     }
 
     /**
@@ -67,4 +77,4 @@ class PromoController extends Controller
     {
         //
     }
-}
+};

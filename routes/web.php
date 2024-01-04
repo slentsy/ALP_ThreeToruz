@@ -1,25 +1,15 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Auth;
 
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\PromoController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MessageController;
 
 // homepage
 Route::get('/', function () {
-    return view('home page/homepage',
+
     return view('home page/homepage',
         [
             "pagetitle" => "Homepage",
@@ -37,31 +27,11 @@ Route::get('aboutUs', function () {
     );
 });
 
-
-
 // ambil data article
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
-Route::get('/article/create', [ArticleController::class, 'create']);
-Route::post('/article/store', [ArticleController::class, 'store']);
+Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
+Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
 // akhir dari article 
-
-
-//route for message (in contact page) logics
-    return view('about page/aboutUs',
-        [
-            "pagetitle" => "About Us🤗",
-        ]
-    );
-});
-
-// article
-Route::get('article', function () {
-    return view('article page/article',
-        [
-            "pagetitle" => "Read Me📖",
-        ]
-    );
-});
 
 
 //route for message (in contact page) logics
@@ -82,6 +52,11 @@ Route::get('product', function () {
 
 
 // promo
-Route::get('/promo', [PromoController::class, 'index'])->name('promo');
+Route::get('/promo', [PromoController::class, 'index'])->name('promo'); //PROMONYA TADI KEDOUBLE
+Route::resource('promos', PromoController::class)->middleware('auth');
+//LAINNYA CUMA MENGATUR ROUTE NYA DENGAN TERURUT SESUAI ABJAD
 
-Route::get('/promo', [PromoController::class, 'index'])->name('promo');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
