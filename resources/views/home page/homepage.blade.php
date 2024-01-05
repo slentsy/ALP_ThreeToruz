@@ -28,7 +28,13 @@
                     <p class="mb-5" alt="Banner's description">Donat Ubi Surabaya.</p>
                 </div>
             </div>
-            
+
+            {{-- @foreach ($banners as $banner)
+            <div class="carousel-item c-item">
+                <img src="{{ asset('storage/' .$banner->banner_pict) }}" class="d-block w-100 c-img" alt="banner lainnya">
+            </div>
+            @endforeach --}}
+
             <div class="carousel-item c-item">
                 <img src="{{ asset('image/padangGurun.jpg') }}" class="d-block w-100 c-img" alt="banner lainnya">
             </div>

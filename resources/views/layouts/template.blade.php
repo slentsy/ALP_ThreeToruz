@@ -71,9 +71,21 @@
                     <li class="nav-item {{ Request::segment(1) == 'contact' ? 'active' : '' }}">
                         <a class="nav-link" href="contact">CONTACT US</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1) == '/banner/read' ? 'active' : '' }}">
+                    {{-- <li class="nav-item {{ Request::segment(1) == '/banner/read' ? 'active' : '' }}">
                         <a class="nav-link" href="/banner/read">ADMIN</a>
-                    </li>
+                    </li> --}}
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="/banner/read">Home Banner</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </div>

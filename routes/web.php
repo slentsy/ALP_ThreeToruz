@@ -1,10 +1,10 @@
 <?php
 
-
+use App\Models\Banner;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\PromoController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// homepage
+
+
+//homepage
 Route::get('/', function () {
-    return view('home page/homepage',
-        [
-            "pagetitle" => "Homepage",
-            "maintitle" => "Homepage"
-        ]
-    );
+    return view('home page/homepage', [
+        "pagetitle" => "Homepage",
+        "maintitle" => "Homepage",
+        "banners" => Banner::all(),
+    ]);
 });
+
 
 // about us
 Route::get('aboutUs', function () {
@@ -49,9 +51,17 @@ Route::get('article', function () {
 //banner feature
 Route::get('/banner/read', [BannerController::class, 'index'])->name('banner');
 Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store');
+//Route::get('/banner/edit/{banner}', [BannerController::class, 'edit'])->name('banner.edit');
+//Route::put('/banner/update/{banner}', [BannerController::class, 'update'])->name('banner.update');
+Route::delete('/banner/destroy/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy');
+
+
 
 //route for message (in contact page)
 Route::get('contact', [MessageController::class, 'index'])->name('contact');
+
+
+
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
 

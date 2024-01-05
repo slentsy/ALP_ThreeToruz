@@ -26,21 +26,23 @@ class BannerController extends Controller
         // );
         //return view ('admin page/dashboard')->with('dataBanner',$dataBanner);
 
-        return view('admin page/dashboard', [
-            "pagetitle" => "admin threetoruz",
+        return view('admin page/bannerRead', [
+            "pagetitle" => "Home Banner",
             "banners" => Banner::all()
         ]);
 
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        //untuk relation
+        // $banners = Banner::all();
+        // return view('admin page/dashboard', compact('banners'));
     }
 
     /**
@@ -81,6 +83,7 @@ class BannerController extends Controller
     public function show(Banner $banner)
     {
         //
+
     }
 
     /**
@@ -89,6 +92,9 @@ class BannerController extends Controller
     public function edit(Banner $banner)
     {
         //
+        $bannerEdit = Banner::where('id', $banner->id)->first();
+        //$banners = Banner::all();
+        return view('banner', compact('bannerEdit'));
     }
 
     /**
@@ -97,6 +103,13 @@ class BannerController extends Controller
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
         //
+        $banner->update(
+            [
+                'banner_judul' => $request->banner_judul,
+                'banner_deskripsi' => $request->banner_deskripsi
+            ]
+        );
+        return redirect()->route('admin page/bannerRead');
     }
 
     /**
@@ -105,5 +118,8 @@ class BannerController extends Controller
     public function destroy(Banner $banner)
     {
         //
+        $banner->delete();
+
+        return redirect()->route('banner')->with('status', 'message-delete');
     }
 }
