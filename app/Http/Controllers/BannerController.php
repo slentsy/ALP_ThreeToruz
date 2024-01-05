@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreBannerRequest;
 use App\Http\Requests\UpdateBannerRequest;
 
@@ -15,6 +16,9 @@ class BannerController extends Controller
     public function index()
     {
         //
+        $currentDate = now();
+        $activeBanners = Banner::where('starting_time', '<=', $currentDate)->where('Ending_time', '>=', $currentDate)->get();
+        return view('home page/homepage', ['banner' => $activeBanners]);
         //$banners = Banner::all();
 
         // Debugging to check the data
@@ -26,10 +30,7 @@ class BannerController extends Controller
         // );
         //return view ('admin page/dashboard')->with('dataBanner',$dataBanner);
 
-        return view('admin page/bannerRead', [
-            "pagetitle" => "Home Banner",
-            "banners" => Banner::all()
-        ]);
+        
 
     }
 
@@ -51,18 +52,22 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         //validate
-        $validatedData = $request->validate([
+        $validateData = $request->validate([
             'banner_pict' => 'image',
+            'starting_time'=>'required',
+            'Ending_time'=>'required'
 
         ]);
 
         if ($request->file('banner_pict')) {
-            $validatedData['banner_pict'] = $request->file('banner_pict')->store('images', ['disk' => 'public']);
+            $validateData['banner_pict'] = $request->file('banner_pict')->store('images', ['disk' => 'public']);
 
             Banner::create([
-                'banner_pict' => $validatedData['banner_pict'],
+                'banner_pict' => $validateData['banner_pict'],
                 'banner_judul' => $request->banner_judul,
-                'banner_deskripsi' => $request->banner_deskripsi
+                'banner_deskripsi' => $request->banner_deskripsi,
+                'starting_time'=> $validateData['starting_time'],
+                'Ending_time'=>  $validateData['Ending_time']
             ]);
         }
         //jika imagenya nullable maka bisa menggunakan code ini
@@ -74,15 +79,21 @@ class BannerController extends Controller
         // ]);
         //}
 
-        return redirect()->route('banner')->with('status', 'message-sent');
+        return redirect()->route('banner_view');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Banner $banner)
+    public function show()
     {
         //
+        $banner = Banner::all();
+            return view('admin page/bannerRead',[
+                'pagetitle' => 'Home Banner',
+                //'maintitle' => 'project Data',
+                'banners'=> $banner,
+            ]);
 
     }
 
@@ -94,22 +105,40 @@ class BannerController extends Controller
         //
         $bannerEdit = Banner::where('id', $banner->id)->first();
         //$banners = Banner::all();
-        return view('banner', compact('bannerEdit'));
+        return view('admin page/bannerEdit', [
+            'pagetitle' => 'edit banner',
+            'bannerEdit' => $bannerEdit
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBannerRequest $request, Banner $banner)
+    public function update(Request $request, Banner $banner)
     {
         //
-        $banner->update(
-            [
+        $validateData = $request->validate([
+            'banner_pict' => 'image',
+            'starting_time'=>'required',
+            'Ending_time'=>'required'
+
+        ]);
+
+        if ($request->file('banner_pict')) {
+            if($banner->banner_pict){
+                Storage::disk('public')->delete($banner->banner_pict);
+            }
+            $validateData['banner_pict'] = $request->file('banner_pict')->store('images', ['disk' => 'public']);
+
+            $banner->update([
+                'banner_pict' => $validateData['banner_pict'],
                 'banner_judul' => $request->banner_judul,
-                'banner_deskripsi' => $request->banner_deskripsi
-            ]
-        );
-        return redirect()->route('admin page/bannerRead');
+                'banner_deskripsi' => $request->banner_deskripsi,
+                'starting_time'=> $validateData['starting_time'],
+                'Ending_time'=>  $validateData['Ending_time']
+            ]);
+        }
+        return redirect()->route('banner_view');
     }
 
     /**
@@ -118,8 +147,13 @@ class BannerController extends Controller
     public function destroy(Banner $banner)
     {
         //
+        if($banner->banner_pict){
+            if(Storage::disk('public')->exists($banner->banner_pict)){
+                Storage::disk('public')->delete($banner->banner_pict);
+            }
+        }
         $banner->delete();
 
-        return redirect()->route('banner')->with('status', 'message-delete');
+        return redirect()->route('banner_view');
     }
 }

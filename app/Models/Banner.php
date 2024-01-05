@@ -13,7 +13,9 @@ class Banner extends Model
         [
             'banner_pict',
             'banner_judul',
-            'banner_deskripsi'
+            'banner_deskripsi',
+            'starting_time',
+            'Ending_time'
         ];
 
 }

@@ -222,3 +222,23 @@ table.table .avatar {
 .modal form label {
 	font-weight: normal;
 }	
+
+/* Untuk menghapus latar belakang dan border tombol */
+button.delete {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Memberi warna merah pada ikon */
+button.delete i.material-icons {
+    color: red;
+}
+
+/* Menghilangkan gaya default link pada ikon */
+button.delete i.material-icons:hover {
+    text-decoration: none;
+	background: white;
+    border: none;
+    padding: 0;
+}

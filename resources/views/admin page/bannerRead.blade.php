@@ -86,20 +86,26 @@
                                         <td class="w-25">{{ $banner->banner_judul }}</td>
                                         <td class="w-25">{{ $banner->banner_deskripsi }}</td>
                                         <td>
-                                            <a href="#editHomeBanner" class="edit" data-toggle="modal"><i
-                                                    class="material-icons" data-toggle="tooltip"
-                                                    title="Edit">&#xE254;</i></a>
-                                            {{-- <a href="#deleteHomeBanner" class="delete" data-toggle="modal"
-                                                    id="delete" name="delete"><i class="material-icons"
-                                                        data-toggle="tooltip" title="Delete">&#xE872;</i></a> --}}
-                                            <form action="{{ route('banner.destroy', $banner) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="btn btn-danger" id="delete" name="delete">Delete</button>
-
-                                            </form>
-
+                                            <div class="d-flex align-items-center">
+                                                {{-- <a href="{{ route('banner_edit', $banner) }}">
+                                                    <button class="btn btn-info" id="edit" name="edit">Edit</button>
+                                                </a> --}}
+                                                <a href="{{ route('banner_edit', $banner) }}" class="edit">
+                                                    <i class="material-icons" data-toggle="tooltip"
+                                                        title="Edit">&#xE254;</i>
+                                                </a>
+                                                <form action="{{ route('banner_destroy', $banner) }}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="delete" data-toggle="modal" id="delete"
+                                                        name="delete">
+                                                        <i class="material-icons" data-toggle="tooltip"
+                                                            title="Delete">&#xE872;</i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
+
                                     </tr>
                                 @endforeach
 
@@ -146,6 +152,16 @@
                                 <div class="form-group">
                                     <label label for="banner_deskripsi" class="form-label">Banner Description</label>
                                     <textarea class="form-control" name="banner_deskripsi"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="starting_time" class="form-label">Start</label>
+                                    <input type="date" class="form-control" id="starting_time" name="starting_time"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Ending_time" class="form-label">End</label>
+                                    <input type="date" class="form-control" id="Ending_time" name="Ending_time"
+                                        required>
                                 </div>
                             </div>
                             <div class="modal-footer">
