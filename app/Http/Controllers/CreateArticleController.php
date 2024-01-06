@@ -14,6 +14,7 @@ class CreateArticleController extends Controller
     public function index()
     {
         //
+    
     }
 
     /**

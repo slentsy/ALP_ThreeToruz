@@ -115,9 +115,13 @@
             document.getElementById('success-message').style.display = 'block';
         }
 
-        // Jika pesan terkirim, panggil fungsi showMessage
-        @if(session('status') == 'message-sent')
+        if (session('status') == 'message-sent') {
             showMessage();
-        @endif
+        }
+
+        // // Jika pesan terkirim, panggil fungsi showMessage
+        // @if(session('status') == 'message-sent')
+        //     showMessage();
+        // @endif
     </script>
 @endsection

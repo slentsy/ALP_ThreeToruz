@@ -1,14 +1,12 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\MessageController;
 
-use App\Http\Controllers\PromoController;
-
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,10 +62,15 @@ Route::delete('/banner/destroy/{banner}', [BannerController::class, 'destroy'])-
 //route for message (in contact page)
 Route::get('contact', [MessageController::class, 'index'])->name('contact');
 
+// route for add article
+Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
 
+//  For showing the form to create a new article
+Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
 
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
 
 
 // product
@@ -91,3 +94,6 @@ Route::get('productDetail', function () {
 
 // promo
 Route::get('/promo', [PromoController::class, 'index'])->name('promo');
+
+// article 
+Route::get('/article', [ArticleController::class, 'index'])->name('articles.index');
