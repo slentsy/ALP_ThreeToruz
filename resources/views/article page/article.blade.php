@@ -1,6 +1,10 @@
 @extends('layouts.template')
 
 @section('layout_content')
+
+
+
+@endsection
     <div class="content-article">
         @foreach ($articles as $key => $article)
             <div class="row row-content">

@@ -8,7 +8,6 @@ body, html {
     background-size: cover;
     background-position: center;
     color: #fff; /* set text color to your preference */
-  
     height: 100vh;
     display: flex;
     align-items: center;
@@ -32,14 +31,3 @@ h5{
     background-color: #FFF0E2;
 }
 
-.btn{
-    background-color: #332416;
-    color: white;
-    border: #332416;
-}
-
-.btn:hover{
-    color: #332416;
-    background-color: #FFC58C;
-    
-}

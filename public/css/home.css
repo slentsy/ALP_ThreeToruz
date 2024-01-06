@@ -1,0 +1,106 @@
+@media (min-width: 992px) {
+    .c-item {
+        object-fit: cover;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .c-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* Tombol Carousel */
+.carousel-control-prev {
+    margin-left: 30px;
+}
+.carousel-control-next {
+    margin-right: 30px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    /* width: 10%; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #66492C; /* Sesuaikan warna ikon sesuai kebutuhan Anda */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    background: #66492C;
+}
+
+/* Ikon Carousel dari Bootstrap Icons */
+.carousel-control-prev .bi,
+.carousel-control-next .bi {
+    font-size: 2rem; /* Sesuaikan ukuran ikon sesuai kebutuhan Anda */
+}
+
+/* Teks untuk aksesibilitas */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+/* css for CARDS */
+.inner{
+   overflow: hidden;
+}
+
+.inner img{
+    transition: all 1.5s ease;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+
+.card {
+    width: 20rem; /* Set the desired width for the cards */
+    height: 100%; /* Set the desired height for the cards */
+    overflow: hidden; /* Hide overflowing content */
+    background-color: rgba(204, 146, 89, 0.65);
+}
+
+.card-title {
+    white-space: nowrap; /* Prevent card title from wrapping to the next line */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
+}
+
+.card-text {
+    overflow: hidden; /* Hide overflowing content in the card text */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the number of lines to display */
+    -webkit-box-orient: vertical;
+}
+
+/* untuk view all button */
+.center-btn {
+    text-align: center;
+    justify-content: center;
+}
+
+.center-btn a {
+    display: inline-block;
+    width: 150px;
+    
+}
+
+/* untuk promo section */
+.bg-secondary {
+    background-color: #19120b !important;
+}

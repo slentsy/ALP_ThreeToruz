@@ -15,9 +15,6 @@ class MessageController extends Controller
     public function index()
     {
         //
-        return view ('contact page/contact')->with([
-            "pagetitle" => "Contact Us📱"
-        ]);
         return view('contact page/contact', [
             "pagetitle" => "Contact Us📞",
         ]);

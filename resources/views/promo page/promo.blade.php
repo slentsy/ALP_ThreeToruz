@@ -1,34 +1,24 @@
 @extends('layouts.template')
 @section('layout_content')
-    <div class="container content-promo">
-        <h2 class="promo-title">Our Promo Product</h2>
-        <form action="/promo" method="GET" class="form-inline w-25 d-flex gap-2 form-search">
-            <input type="form-control" type="search" name="search" placeholder="Search">
-            <button type="submit" class="btn btn-outline-success">Search</button>
-        </form>
-        <button type="button" class="btn btn-secondary">Add Promo</button>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Promo</th>
-                    <th scope="col">Deskripsi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($promos as $key => $promo)
-                <tr>
-                    <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $promo->nama_promo }}</td>
-                    <td>{{ $promo->deskripsi_promo }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <br>
-        <div>
-            {{ $promos ->links()}}
-        </div>
+    <div class="container div-promo">
+        @foreach ($promos as $key => $promo)
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">{{ $promo->nama_promo }}<span class="text-muted"></span></h2>
+                    <p class="lead">Only Rp{{ $promo->deskripsi_promo }} you will get the best donut🤤</p>
+                </div>
+                <div class="col-md-5">
+                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa"
+                            dy=".3em">500x500</text>
+                    </svg>
+                </div>
+            </div>
+            <hr class="featurette-divider">
+        @endforeach
     </div>
-    <img src="{{asset('image/Price List.png')}}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto gambar-promo" width="500" height="500">
+    </div>
 @endsection

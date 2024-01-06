@@ -1,22 +1,37 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-
+use App\Models\Banner;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromoController;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\MessageController;
 
-// homepage
-Route::get('/', function () {
+use App\Http\Controllers\PromoController;
 
-    return view('home page/homepage',
-        [
-            "pagetitle" => "Homepage",
-            "maintitle" => "Homepage"
-        ]
-    );
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+
+//homepage
+Route::get('/', function () {
+    return view('home page/homepage', [
+        "pagetitle" => "Homepage",
+        "maintitle" => "Homepage",
+        "banners" => Banner::all(),
+    ]);
 });
+
 
 // about us
 Route::get('aboutUs', function () {
@@ -27,36 +42,52 @@ Route::get('aboutUs', function () {
     );
 });
 
-// ambil data article
-Route::get('/article', [ArticleController::class, 'index'])->name('article');
-Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
-Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
-// akhir dari article 
+
+// article
+Route::get('article', function () {
+    return view('article page/article',
+        [
+            "pagetitle" => "Read Me📖",
+        ]
+    );
+});
+
+//banner feature
+Route::get('/banner/read', [BannerController::class, 'index'])->name('banner');
+Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store');
+//Route::get('/banner/edit/{banner}', [BannerController::class, 'edit'])->name('banner.edit');
+//Route::put('/banner/update/{banner}', [BannerController::class, 'update'])->name('banner.update');
+Route::delete('/banner/destroy/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy');
 
 
-//route for message (in contact page) logics
+
+//route for message (in contact page)
 Route::get('contact', [MessageController::class, 'index'])->name('contact');
+
+
+
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
-// akhir message
+
 
 // product
 Route::get('product', function () {
     return view('product page/product',
         [
-            "pagetitle" => "About Us🤗",
+            "pagetitle" => "Our Product🍩",
+        ]
+    );
+});
+
+// product
+Route::get('productDetail', function () {
+    return view('product page/detail',
+        [
+            "pagetitle" => "Product Detail🍩",
         ]
     );
 });
 
 
-
 // promo
-Route::get('/promo', [PromoController::class, 'index'])->name('promo'); //PROMONYA TADI KEDOUBLE
-Route::resource('promos', PromoController::class)->middleware('auth');
-//LAINNYA CUMA MENGATUR ROUTE NYA DENGAN TERURUT SESUAI ABJAD
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/promo', [PromoController::class, 'index'])->name('promo');
