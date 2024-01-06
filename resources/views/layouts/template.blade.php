@@ -82,8 +82,8 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="/banner_view">Home Banner</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="/category_view">Category</a></li>
+                            <li><a class="dropdown-item" href="/product_view">Product (for admin)</a></li>
                         </ul>
                     </div>
                 </ul>

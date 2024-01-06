@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('categories_id');
+            $table->timestamps();
+            $table->string('foto_produk');
             $table->string('nama_produk');
             $table->integer('harga_produk');
             $table->text('deskripsi_produk');
             $table->boolean('highlights_produk')->nullable();
-            $table->timestamps();
+            
+            //one-to-many relation with products
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
 
             
         });
