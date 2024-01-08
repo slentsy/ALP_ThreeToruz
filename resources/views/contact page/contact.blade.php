@@ -15,7 +15,7 @@
             <div class="container-fluid p-5">
                 <h1 class="display-4 text-center">Contact Us</h1>
                 <p class="text-center">Welcome to our Contact Us page! We're thrilled to connect with you. Whether you have a question, a suggestion, or just want to say hello, we're here for you.</p>
-                <div class="container-fluid p-5" data-aos="fade-up">
+                <div class="container-fluid" data-aos="fade-up">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 p-2">
                             <div class="card">
@@ -69,7 +69,7 @@
 
             </div>
             {{-- LEAVE A MESSAGE --}}
-            <div class="container shadow bg-white rounded p-3 mt-5 mb-5">
+            <div class="container-fluid shadow bg-white rounded p-3 mt-5 mb-5">
                 <div>
                     <h2 class="mb-4 text-center" style="color: #332416; font-family: Jacques Francois; color: #332416;">Leave us a message📝</h2>
                     <form method="POST" action="{{ route('message.store') }}" class="w-75 mx-auto ">
