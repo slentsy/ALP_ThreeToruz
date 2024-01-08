@@ -11,11 +11,12 @@ class Promo extends Model
 
     protected $fillable = 
     [
-        'nama_promo', 
-        'diskon', 
+        'image', 
+        'name', 
+        'price',
         'tanggal_mulai', 
         'tanggal_berakhir', 
-        'deskripsi_promo'
+        'description'
 
     ]; 
 }

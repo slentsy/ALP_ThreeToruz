@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Produk;
+use App\Models\Review;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProdukRequest;
@@ -52,6 +53,7 @@ class ProdukController extends Controller
                 'harga_produk' => $validateData['harga_produk'],
                 'deskripsi_produk'=> $validateData['deskripsi_produk'],
                 'category_id'=>  $validateData['category_id'],
+                'highlights_produk' => $request->has('highlights_produk')
             ]);
         }
 
@@ -116,7 +118,8 @@ class ProdukController extends Controller
                 'nama_produk' => $validateData['nama_produk'],
                 'harga_produk' => $validateData['harga_produk'],
                 'deskripsi_produk'=> $validateData['deskripsi_produk'],
-                'category_id'=>  $validateData['category_id']
+                'category_id'=>  $validateData['category_id'],
+                'highlights_produk' => $request->has('highlights_produk')
             ]);
         }
         return redirect()->route('product_view');
@@ -141,6 +144,8 @@ class ProdukController extends Controller
     public function showProductDetail($id)
     {
         $productDetail = Produk::find($id);
+        $highlights = Produk::where('highlights_produk', true)->get();
+        
 
         if (!$productDetail) {
             // Handle the case where the product with the given ID is not found.
@@ -148,9 +153,13 @@ class ProdukController extends Controller
             return redirect()->route('product_view')->with('error', 'Product not found.');
         }
 
+        $reviews = Review::all();
         return view('product page/detail', [
             "pagetitle" => "Product Detail 🍩",
-            "productDetail" => $productDetail
+            "productDetail" => $productDetail,
+            "reviews" => $reviews,
+            'categories' => Category::all(),
+            'highlights' => $highlights
         ]);
     }
 }

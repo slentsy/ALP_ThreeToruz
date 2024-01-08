@@ -17,6 +17,7 @@ class Produk extends Model
         'nama_produk', 
         'harga_produk', 
         'deskripsi_produk', 
+        'highlights_produk',
         'category_id'
         
 
@@ -30,10 +31,16 @@ class Produk extends Model
         return $this->belongsTo(Category::class);
     }
 
-    // ini method untuk relasi article
-    public function article()
+    //relasi one-to-many antara produk dan review
+    public function reviews()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Review::class, 'produk_id');
+    }
+
+    // ini method untuk relasi article
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class);
     }
 
 }
