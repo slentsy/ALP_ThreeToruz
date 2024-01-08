@@ -40,19 +40,19 @@
     <div class="col-lg-12" style="padding: 100px;">
 
         {{-- BANNER HOME PAGE FORM --}}
-        <div class="tab-pane active" id="nav-homeBanner" role="tabpanel" aria-labelledby="nav-homeBanner-tab">
+        <div class="tab-pane active" id="nav-product" role="tabpanel" aria-labelledby="nav-product-tab">
             <div class="container-xl">
                 <div class="table-responsive">
                     <div class="table-wrapper">
                         <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h2>Manage <b>Banner Home Page</b></h2>
+                                    <h2>Manage <b>Products</b></h2>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="#createHomeBanner" class="btn btn-success" data-toggle="modal"><i
-                                            class="material-icons">&#xE147;</i> <span>Add New Home Banner</span></a>
-                                    <a href="#deleteHomeBanner" class="btn btn-danger" data-toggle="modal"><i
+                                    <a href="#createProduct" class="btn btn-success" data-toggle="modal"><i
+                                            class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                                    <a href="#deleteProduct" class="btn btn-danger" data-toggle="modal"><i
                                             class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                                 </div>
                             </div>
@@ -66,14 +66,16 @@
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
-                                    <th>Picture</th>
-                                    <th>Title</th>
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
                                     <th>Description</th>
+                                    <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($banners as $banner)
+                                @foreach ($produks as $product)
                                     <tr>
                                         <td>
                                             <span class="custom-checkbox">
@@ -82,19 +84,18 @@
                                             </span>
                                         </td>
                                         <td><img class="img-fluid w-25"
-                                                src="{{ asset('storage/' . $banner->banner_pict) }}" /></td>
-                                        <td class="w-25">{{ $banner->banner_judul }}</td>
-                                        <td class="w-25">{{ $banner->banner_deskripsi }}</td>
+                                                src="{{ asset('storage/' . $product->foto_produk) }}" /></td>
+                                        <td class="w-25">{{ $product->nama_produk }}</td>
+                                        <td class="w-25">Rp{{ $product->harga_produk }}</td>
+                                        <td class="w-25">{{ $product->deskripsi_produk }}</td>
+                                        <td class="w-25">{{ $product->category->category_name }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                {{-- <a href="{{ route('banner_edit', $banner) }}">
-                                                    <button class="btn btn-info" id="edit" name="edit">Edit</button>
-                                                </a> --}}
-                                                <a href="{{ route('banner_edit', $banner) }}" class="edit">
+                                                <a href="{{ route('product_edit', $product) }}" class="edit">
                                                     <i class="material-icons" data-toggle="tooltip"
                                                         title="Edit">&#xE254;</i>
                                                 </a>
-                                                <form action="{{ route('banner_destroy', $banner) }}" method="POST">
+                                                <form action="{{ route('product_destroy', $product) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="delete" data-toggle="modal" id="delete"
@@ -127,41 +128,43 @@
                 </div>
             </div>
             <!-- Create Modal HTML -->
-            <div id="createHomeBanner" class="modal fade">
+            <div id="createProduct" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="{{ route('banner.store') }}" enctype="multipart/form-data" method="POST">
+                        <form action="{{ route('product_store') }}" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="modal-header">
-                                <h4 class="modal-title">Add New Home Banner</h4>
+                                <h4 class="modal-title">Add New Product</h4>
                                 <button type="button" class="close" data-dismiss="modal"
                                     aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="banner_pict" class="form-label">Upload Home Banner Image</label>
-                                    <input class="form-control" type="file" name="banner_pict" id="banner_pict"
+                                    <label for="foto_produk" class="form-label">Upload Product Image</label>
+                                    <input class="form-control" type="file" name="foto_produk" id="foto_produk"
                                         accept="image/jpg, image/png, image/jpeg" onchange="previewImage()" required>
                                     <img class="img-preview img-fluid mb-3 col-sm-5" src="" alt="">
                                 </div>
                                 <div class="form-group">
-                                    <label label for="banner_judul" class="form-label">Banner Title</label>
-                                    <input type="text" class="form-control" name="banner_judul">
+                                    <label label for="nama_produk" class="form-label">Product Name</label>
+                                    <input type="text" class="form-control" name="nama_produk" required>
                                 </div>
                                 <div class="form-group">
-                                    <label label for="banner_deskripsi" class="form-label">Banner Description</label>
-                                    <textarea class="form-control" name="banner_deskripsi"></textarea>
+                                    <label label for="harga_produk" class="form-label">Product Price</label>
+                                    <input type="number" class="form-control" name="harga_produk" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="starting_time" class="form-label">Start</label>
-                                    <input type="date" class="form-control" id="starting_time" name="starting_time"
-                                        required>
+                                    <label label for="deskripsi_produk" class="form-label">Product Description</label>
+                                    <textarea class="form-control" name="deskripsi_produk" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Ending_time" class="form-label">End</label>
-                                    <input type="date" class="form-control" id="Ending_time" name="Ending_time"
-                                        required>
+                                    <label label for="category_id" class="form-label">Product Category</label>
+                                    <select name="category_id" id="category_id" required>
+                                        @foreach ($category as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -237,7 +240,7 @@
     {{-- javascript for input image preview --}}
     <script>
         function previewImage() {
-            const image = document.querySelector('#banner_pict');
+            const image = document.querySelector('#foto_produk');
             const imgPreview = document.querySelector('.img-preview');
 
             imgPreview.style.display = 'block';

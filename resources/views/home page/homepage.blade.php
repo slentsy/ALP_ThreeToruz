@@ -11,16 +11,17 @@
 
 
     <!-- START OF JUMBOTRON AKA BANNER -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
 
-        <div class="carousel-indicators">
+        {{-- <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                 aria-label="Slide 2"></button>
-        </div>
+        </div> --}}
 
         <div class="carousel-inner">
+            
             <div class="carousel-item active c-item">
                 <img src="{{ asset('image/Crownpuccino.png') }}" class="d-block w-100 c-img" alt="banner utama">
                 <div class="carousel-caption d-none d-md-block">
@@ -29,23 +30,27 @@
                 </div>
             </div>
 
-            {{-- @foreach ($banners as $banner)
+            @foreach ($banners as $bannerHome)
             <div class="carousel-item c-item">
-                <img src="{{ asset('storage/' .$banner->banner_pict) }}" class="d-block w-100 c-img" alt="banner lainnya">
+                @if($bannerHome->banner_pict)
+                <img src="{{ asset('storage/' .$bannerHome->banner_pict) }}" class="d-block w-100 c-img" alt="{{ $bannerHome->banner_judul }}">
+                @else
+                <img src="{{ asset('image/unavailablepict.png') }}" alt="No Image" class="d-block w-100 c-img">
+                @endif
             </div>
-            @endforeach --}}
+            @endforeach
 
-            <div class="carousel-item c-item">
+            {{-- <div class="carousel-item c-item">
                 <img src="{{ asset('image/padangGurun.jpg') }}" class="d-block w-100 c-img" alt="banner lainnya">
-            </div>
+            </div> --}}
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>

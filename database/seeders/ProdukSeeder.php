@@ -16,7 +16,7 @@ class ProdukSeeder extends Seeder
     public function run(): void
     {
         // membuat variabel categories
-        $categories = app(CategoriesSeeder::class)->run();
+        $categories = app(CategorySeeder::class)->run();
 
         // ACE DONUT
         // DONUT 1

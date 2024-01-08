@@ -109,26 +109,25 @@
                                                         <span>(5)</span>
                                                     </div>
                                                 </li>
-                                                
+
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                             <h4 class="mb-2">Price</h4>
-                                            <input type="range" class="form-range w-100" id="rangeInput"
-                                                name="rangeInput" min="0" max="500" value="0"
+                                            <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput"
+                                                min="0" max="500" value="0"
                                                 oninput="amount.value=rangeInput.value">
                                             <output id="amount" name="amount" min-velue="0" max-value="500"
                                                 for="rangeInput">0</output>
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                     <div class="col-lg-12">
                                         <div class="position-relative">
-                                            <img src="img/banner-fruits.jpg" class="img-fluid w-100 rounded"
-                                                alt="">
+                                            <img src="img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
                                             <div class="position-absolute"
                                                 style="top: 50%; right: 10px; transform: translateY(-50%);">
                                                 <h3 class="text-secondary fw-bold">Another <br> Donuts <br> Banner</h3>
@@ -139,48 +138,30 @@
                             </div>
                             <div class="col-lg-9">
                                 <div class="row g-4 justify-content-center">
+                                    
+                                    @foreach ($produks as $product)
                                     <div class="col-md-6 col-lg-6 col-xl-4">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="image/Berry Delight.png" class="img-fluid w-100 rounded-top"
+                                                <img src="{{ asset('storage/' . $product->foto_produk) }}" class="img-fluid w-100 rounded-top"
                                                     alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">ACE</div>
+                                                style="top: 10px; left: 10px;">{{ $product->category->category_name }}</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Berry Delight</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te
-                                                    incididunt</p>
+                                                <h4>{{ $product->nama_produk }}</h4>
+                                                <p>{{ $product->deskripsi_produk }}</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">15k</p>
-                                                    <a href="productDetail"
+                                                    <p class="text-dark fs-5 fw-bold mb-0">Rp{{ $product->harga_produk }}</p>
+                                                    <a href="{{ route('productDetail', ['id' => $product->id]) }}"
                                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-info-circle me-2 text-primary"></i> See Details</a>
+                                                            class="fa fa-info-circle me-2 text-primary"></i> See
+                                                        Details</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="image/Berry Delight.png" class="img-fluid w-100 rounded-top"
-                                                    alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">KING</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Chocomelon</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te
-                                                    incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">12k</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-info-circle me-2 text-primary"></i> See Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                     <div class="col-md-6 col-lg-6 col-xl-4">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
@@ -197,7 +178,8 @@
                                                     <p class="text-dark fs-5 fw-bold mb-0">15k</p>
                                                     <a href="#"
                                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-info-circle me-2 text-primary"></i> See Details</a>
+                                                            class="fa fa-info-circle me-2 text-primary"></i> See
+                                                        Details</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,12 +200,13 @@
                                                     <p class="text-dark fs-5 fw-bold mb-0">12k</p>
                                                     <a href="#"
                                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-info-circle me-2 text-primary"></i> See Details</a>
+                                                            class="fa fa-info-circle me-2 text-primary"></i> See
+                                                        Details</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     {{-- PAGINATION --}}
                                     <div class="col-12">
                                         <div class="pagination d-flex justify-content-center mt-5">
