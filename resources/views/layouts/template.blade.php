@@ -1,64 +1,96 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{$pagetitle}}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>{{ $pagetitle }}</title>
 
 
-        <!-- G-FONT -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jacques+Francois&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&family=Jacques+Francois&display=swap" rel="stylesheet">
-        <!-- poppins extrabold -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&family=Jacques+Francois&family=Poppins:wght@800&display=swap" rel="stylesheet">
-        <!-- inter bold -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Itim&family=Jacques+Francois&family=Poppins:wght@800&display=swap" rel="stylesheet">
-        <!-- AKHIR G-FONT -->
+    <!-- G-FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jacques+Francois&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&family=Jacques+Francois&display=swap"
+        rel="stylesheet">
+    <!-- poppins extrabold -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&family=Jacques+Francois&family=Poppins:wght@800&display=swap"
+        rel="stylesheet">
+    <!-- inter bold -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Itim&family=Jacques+Francois&family=Poppins:wght@800&display=swap"
+        rel="stylesheet">
+    <!-- AKHIR G-FONT -->
 
-        <!-- panggil css file di dalam laravel -->
-        <link rel="stylesheet" href="/css/style.css">
-        <!-- akhir panggil css file di dalam laravel -->
+    <!-- panggil css file di dalam laravel -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- akhir panggil css file di dalam laravel -->
 
-    </head>
-  <body>
+</head>
+
+<body>
 
     <!-- awal Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top nav-template">
         <!-- akhir logo three toruz -->
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{asset('image/Logo.PNG')}}" alt="" width="80" height="50">
+                <img src="{{ asset('image/Logo.PNG') }}" alt="" width="80" height="50">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item {{ Request::segment(1)=== null ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1) === null ? 'active' : '' }}">
                         <a class="nav-link" href="/">HOME</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1)=='product' ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1) == 'product' ? 'active' : '' }}">
                         <a class="nav-link" href="product">PRODUCT</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1)=='promo' ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1) == 'promo' ? 'active' : '' }}">
                         <a class="nav-link" href="promo">PROMO</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1)=='article' ? 'active' : ''  }}">
+                    <li class="nav-item {{ Request::segment(1) == 'article' ? 'active' : '' }}">
                         <a class="nav-link" href="article">ARTICLE</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1)=='aboutUs' ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1) == 'aboutUs' ? 'active' : '' }}">
                         <a class="nav-link" href="aboutUs">ABOUT US</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1)=='contact' ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::segment(1) == 'contact' ? 'active' : '' }}">
                         <a class="nav-link" href="contact">CONTACT US</a>
                     </li>
+                    {{-- <li class="nav-item {{ Request::segment(1) == '/banner/read' ? 'active' : '' }}">
+                        <a class="nav-link" href="/banner/read">ADMIN</a>
+                    </li> --}}
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="/banner_view">Home Banner</a></li>
+                            <li><a class="dropdown-item" href="/category_view">Category</a></li>
+                            <li><a class="dropdown-item" href="/product_view">Product</a></li>
+                            <li><a class="dropdown-item" href="/review_view">Customer Review</a></li>
+                            <li><a class="dropdown-item" href="/promo_view">Promo</a></li>
+                            <li><a class="dropdown-item" href="/locTime_view">Location & Operational Hours</a></li>
+                            <li><a class="dropdown-item" href="/article_view">Article</a></li>
+                            <li><a class="dropdown-item" href="/funfact_view">Products & Articles</a></li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -87,7 +119,8 @@
                         <img src="../assets/images/brand/logo/logo.svg" alt="" class="logo-inverse ">
                         <div class="mt-4">
                             <h3 class="fw-bold mb-3">THREE TORUZ</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                                ullamcorper mattis, pulvinar dapibus leo.
                             </p>
                             <!-- social media -->
                             <div class="fs-4 mt-4">
@@ -126,23 +159,27 @@
                         <h3 class="fw-bold mb-3">Menu</h3>
                         <ul class="list-unstyled nav nav-footer flex-column nav-x-0">
                             <li><a href="/" class="nav-footers"><i class="fa fa-home"></i> Home</a></li>
-                            <li><a href="product" class="nav-footers"><i class="fa fa-shopping-cart"></i> Product</a></li>
+                            <li><a href="product" class="nav-footers"><i class="fa fa-shopping-cart"></i> Product</a>
+                            </li>
                             <li><a href="promo" class="nav-footers"><i class="fa fa-percent"></i> Promo</a></li>
-                            <li><a href="article" class="nav-footers"><i class="fa fa-newspaper-o"></i> Article</a></li>
-                            <li><a href="aboutUs" class="nav-footers"><i class="fa fa-info-circle"></i> About Us</a></li>
+                            <li><a href="article" class="nav-footers"><i class="fa fa-newspaper-o"></i> Article</a>
+                            </li>
+                            <li><a href="aboutUs" class="nav-footers"><i class="fa fa-info-circle"></i> About Us</a>
+                            </li>
                             <li><a href="contact" class="nav-footers"><i class="fa fa-phone"></i> Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-12">
                     <!-- contact info -->
                     <div class="mb-4">
                         <h3 class="fw-bold mb-3">Get in touch</h3>
-                        
+
                         <p> <i class="fa fa-map-marker"></i> Citraland, Surabaya Barat</p>
-                        
-                        <p class="mb-1"> <i class="fa fa-envelope"></i> Email: <a href="mailto:gki.mojokerto@gmail.com">threetoruz@gmail.com</a></p>
+
+                        <p class="mb-1"> <i class="fa fa-envelope"></i> Email: <a
+                                href="mailto:gki.mojokerto@gmail.com">threetoruz@gmail.com</a></p>
                         <p><i class="fa fa-phone"></i> Phone: <span class=" fw-semibold">+62 (?)</span></p>
 
                     </div>
@@ -155,7 +192,8 @@
                             <script>
                                 document.getElementById('copyright2').appendChild(document.createTextNode(new Date().getFullYear()))
                             </script>
-                        </span> Marshanda 0706012210056 & Sophia Madlentsy Tambunan 0706012210058</span>
+                        </span>Three Toruz</span>
+                        <p style="font-size: 12px;">Developed by: Marshanda 0706012210056 & Sophia Madlentsy Tambunan 0706012210058</p>
                 </div>
 
                 <!-- Links -->
@@ -166,7 +204,8 @@
                         <a class="nav-footers px-2 px-md-3"
                             href="https://www.privacypolicies.com/blog/sample-cookies-policy-template/">Cookie Notice
                         </a>
-                        <a class="nav-footers" href="https://termly.io/resources/templates/terms-of-use-template/">Terms
+                        <a class="nav-footers"
+                            href="https://termly.io/resources/templates/terms-of-use-template/">Terms
                             of Use</a>
                     </nav>
                 </div>
@@ -178,18 +217,25 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script> -->
 
     <!-- Javascriptnya -->
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-   
-  </body>
+
+</body>
+
 </html>

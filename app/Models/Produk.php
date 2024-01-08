@@ -13,27 +13,34 @@ class Produk extends Model
     [
         // kategori_id
         // highlight
+        'foto_produk',
         'nama_produk', 
         'harga_produk', 
         'deskripsi_produk', 
-        // kategori_id nantinya akan otomatis terbuat
-        // saat direlasikan
+        'highlights_produk',
+        'category_id'
         
 
     ];
 
     // ini method untuk relasi produk dengan kategori
-    public function categories()
+    public function category()
     {
         // mengembalikan relasi dari model Produk ke kategori
         // model produk berelasi dengan model kategori
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    //relasi one-to-many antara produk dan review
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'produk_id');
     }
 
     // ini method untuk relasi article
-    public function article()
+    public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->belongsToMany(Article::class);
     }
 
 }

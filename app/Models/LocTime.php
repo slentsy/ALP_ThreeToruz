@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kategori extends Model
+class LocTime extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'loc',
+        'time',
+        'description'
+    ];
 }
