@@ -84,7 +84,7 @@ class ArticleController extends Controller
     {
         //
         $article = Article::findOrFail($id); 
-        return view('articles.edit', compact('article'));
+        return view('admin page/editArticle', compact('article'));
     }
 
     /**
@@ -97,13 +97,31 @@ class ArticleController extends Controller
             'judul_article' => 'required',
             'deskripsi_article' => 'required',
             'tanggal_publish' => 'required|date',
-            'gambar' => 'required',
+            'gambar' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         $article = Article::findOrFail($id);
+
+        // check if a new image is provided
+        if ($request->hasFile('gambar')){
+            // delete the old image if it exists
+            if($article->gambar){
+                Storage::disk('public')->delete('photo-article/' . $article->gambar);
+            }
+
+            // Upload the new image
+            $gambar = $request->file('gambar');
+            $filename = date('Y-m-d') . $gambar->getClientOriginalName();
+            $path = 'photo-article/' . $filename;
+            Storage::disk('public')->put($path, file_get_contents($gambar));
+
+            // Update the article with the new image
+            $validatedData['gambar'] = $filename;
+        }
+
         $article->update($validatedData);
 
-        return redirect(route('articles.index'))->with('success', 'Article updated successfully!');
+        return redirect()->route('articles.index')->with('success', 'Article updated successfully!');
     }
 
     /**
@@ -115,6 +133,6 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $article->delete();
 
-        return redirect(route('articles.index'))->with('success', 'Article deleted successfully!');
+        return redirect()->route('articles.index')->with('success', 'Article deleted successfully!');
     }
 }

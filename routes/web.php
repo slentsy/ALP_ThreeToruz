@@ -64,9 +64,16 @@ Route::get('contact', [MessageController::class, 'index'])->name('contact');
 
 // route for add article
 Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
-
 //  For showing the form to create a new article
 Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
+// article 
+Route::get('/article', [ArticleController::class, 'index'])->name('articles.index');
+// destroy
+Route::delete('/article/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
+// edit 
+Route::get('/article/{id}/edit', [ArticleController::class, 'edit'])->name('article.edit');
+Route::put('/article/{id}', [ArticleController::class, 'update'])->name('article.update');
+
 
 Route::get('/message/create', [MessageController::class, 'create'])->name('message.create');
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
@@ -95,5 +102,3 @@ Route::get('productDetail', function () {
 // promo
 Route::get('/promo', [PromoController::class, 'index'])->name('promo');
 
-// article 
-Route::get('/article', [ArticleController::class, 'index'])->name('articles.index');
