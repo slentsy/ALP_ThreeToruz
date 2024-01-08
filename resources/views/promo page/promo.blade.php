@@ -1,20 +1,30 @@
 @extends('layouts.template')
 @section('layout_content')
+    <!-- Hero Start -->
+    <section class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">Our Promos</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
+                    <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="product">Promo</a></li>
+                </ol>
+            </nav>
+        </div>
+        </div>
+    </section>
+    <!-- Hero End -->
     <div class="container div-promo">
-        @foreach ($promos as $key => $promo)
+        @foreach ($promos as $promo)
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">{{ $promo->nama_promo }}<span class="text-muted"></span></h2>
-                    <p class="lead">Only Rp{{ $promo->deskripsi_promo }} you will get the best donut🤤</p>
+                    <h2 class="featurette-heading">{{ $promo->name }}<span class="text-muted"></span></h2>
+                    <p class="lead">Only Rp{{ $promo->price }}</p>
+                    <p class="lead">{{ $promo->description }}</p>
                 </div>
                 <div class="col-md-5">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa"
-                            dy=".3em">500x500</text>
-                    </svg>
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                        src="{{ asset('storage/' . $promo->image) }}" width="500" height="500" alt="Promo Image">
                 </div>
             </div>
             <hr class="featurette-divider">

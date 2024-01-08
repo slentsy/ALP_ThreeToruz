@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -37,36 +38,26 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = Validator::make($request->all(), [
-            'judul_article' => 'required', 
-            'deskripsi_article' => 'required', 
-            'gambar' => 'required|mimes:png,jpg,jpeg|max:2048'
+        //
+        $validateData = $request->validate([
+            'gambar' => 'image',
+            'judul_article'=>'required',
+            'deskripsi_article'=>'required',
+
         ]);
 
-        if($validatedData->fails()) {
-            return redirect()->back()->withInput()->withErrors($validatedData);
+        if ($request->file('gambar')) {
+            $validateData['gambar'] = $request->file('gambar')->store('images', ['disk' => 'public']);
+
+            Article::create([
+                'gambar' => $validateData['gambar'],
+                'judul_article' => $validateData['judul_article'],
+                'deskripsi_article' => $validateData['deskripsi_article']
+            ]);
         }
 
-        // dd($request->all());
-
-        $gambar = $request->file('gambar');
-        $filename = date('Y-m-d').$gambar->getClientOriginalName();
-        $path = 'photo-article/'.$filename;
-
-        Storage::disk('public')->put($path, file_get_contents($gambar));
-
-        Article::create([
-            'judul_article' => $request->judul_article,
-            'deskripsi_article' => $request->deskripsi_article,
-            'tanggal_publish' => $request->tanggal_publish,
-            'gambar' => $filename,
-        ]);
-
-        return redirect()->route('articles.index')->with('success', 'Article created successfully!');
         
-        
-        // Article::create($request->except(['-token','submit'])); 
-        // return redirect()->route('article.create');
+        return redirect()->route('article_view');
     }
 
     /**
@@ -75,6 +66,13 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         //
+        $article = Article::all();
+        
+            return view('admin page/articleRead',[
+                'pagetitle' => 'Organize Product',
+                'articles'=> $article
+                
+            ]);
     }
 
     /**
@@ -83,45 +81,42 @@ class ArticleController extends Controller
     public function edit($id)
     {
         //
-        $article = Article::findOrFail($id); 
-        return view('admin page/editArticle', compact('article'));
+        $articleEdit = Article::where('id', $article->id)->first();
+       
+        
+        return view('admin page/articleEdit', [
+            'pagetitle' => 'edit product',
+            'articleEdit' => $articleEdit
+            
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
         //
-        $validatedData = $request->validate([
-            'judul_article' => 'required',
-            'deskripsi_article' => 'required',
-            'tanggal_publish' => 'required|date',
-            'gambar' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
+        $validateData = $request->validate([
+            'gambar' => 'image',
+            'judul_article'=>'required',
+            'deskripsi_article'=>'required',
+
         ]);
 
-        $article = Article::findOrFail($id);
-
-        // check if a new image is provided
-        if ($request->hasFile('gambar')){
-            // delete the old image if it exists
+        if ($request->file('gambar')) {
             if($article->gambar){
-                Storage::disk('public')->delete('photo-article/' . $article->gambar);
+                Storage::disk('public')->delete($article->gambar);
             }
+            $validateData['gambar'] = $request->file('gambar')->store('images', ['disk' => 'public']);
 
-            // Upload the new image
-            $gambar = $request->file('gambar');
-            $filename = date('Y-m-d') . $gambar->getClientOriginalName();
-            $path = 'photo-article/' . $filename;
-            Storage::disk('public')->put($path, file_get_contents($gambar));
-
-            // Update the article with the new image
-            $validatedData['gambar'] = $filename;
+            $article->update([
+                'gambar' => $validateData['gambar'],
+                'judul_article' => $validateData['judul_article'],
+                'deskripsi_article' => $validateData['deskripsi_article']
+            ]);
         }
-
-        $article->update($validatedData);
-
-        return redirect()->route('articles.index')->with('success', 'Article updated successfully!');
+        return redirect()->route('article_view');
     }
 
     /**
@@ -130,9 +125,13 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
-        $article = Article::findOrFail($id);
+        if($article->gambar){
+            if(Storage::disk('public')->exists($article->gambar)){
+                Storage::disk('public')->delete($article->gambar);
+            }
+        }
         $article->delete();
 
-        return redirect()->route('articles.index')->with('success', 'Article deleted successfully!');
+        return redirect()->route('article_view');
     }
 }

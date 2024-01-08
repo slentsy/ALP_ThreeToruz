@@ -49,7 +49,7 @@ footer{
     color: white;
 }
 
-.icon, a{
+.icon{
     color: #FFFFFF;
 }
 
@@ -125,7 +125,7 @@ h5.text-white{
 
 /* CSS FOR PROMO PAGE  */
 .div-promo{
-    padding-top: 8rem;
+    padding-top: 10rem;
 }
 
 /* CSS FOR ARTICLE */
@@ -146,38 +146,3 @@ h5.text-white{
     height: 90%;
 }
 /* END CSS FOR ARTICLE */
-
-
-/* CSS FOR PROMO */
-.content-promo{
-    max-width: 80%;
-    height: 90%;
-    padding-top: 8rem;
-    text-align: center;
-    
-}
-
-.gambar-promo{
-    display: block;
-    align-items:center;
-    max-width: 100%;
-    height: auto;
-    padding-bottom: 2rem;
-}
-
-.promo-title{
-    padding-bottom: 2rem;
-}
-
-.form-search{
-    padding-bottom: 1rem;
-}
-/* end css promo */
-
-
-/* css for create article */
-.new-article{
-    padding-top: 4rem;
-}
-
-/* end css for create article */

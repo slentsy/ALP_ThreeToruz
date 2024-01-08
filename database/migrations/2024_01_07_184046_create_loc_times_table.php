@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('loc_times', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('loc');
+            $table->string('time');
+            $table->text('description');
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('loc_times');
     }
 };

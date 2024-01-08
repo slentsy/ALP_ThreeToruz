@@ -9,15 +9,10 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = 
-    [
-        'nama_pelanggan', 
-        'deskripsi_review', 
-        'rating_review', 
-        'visibility_nama',
-        'status_accepted',
-        'produk_id', 
-        'reply_id'
+    protected $fillable = ['review_customerName', 'review_description', 'review_email', 'produk_id'];
 
-    ]; 
+    public function product()
+    {
+        return $this->belongsTo(Produk::class, 'produk_id');
+    }
 }

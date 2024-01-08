@@ -83,7 +83,12 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="/banner_view">Home Banner</a></li>
                             <li><a class="dropdown-item" href="/category_view">Category</a></li>
-                            <li><a class="dropdown-item" href="/product_view">Product (for admin)</a></li>
+                            <li><a class="dropdown-item" href="/product_view">Product</a></li>
+                            <li><a class="dropdown-item" href="/review_view">Customer Review</a></li>
+                            <li><a class="dropdown-item" href="/promo_view">Promo</a></li>
+                            <li><a class="dropdown-item" href="/locTime_view">Location & Operational Hours</a></li>
+                            <li><a class="dropdown-item" href="/article_view">Article</a></li>
+                            <li><a class="dropdown-item" href="/funfact_view">Products & Articles</a></li>
                         </ul>
                     </div>
                 </ul>
@@ -182,7 +187,8 @@
                             <script>
                                 document.getElementById('copyright2').appendChild(document.createTextNode(new Date().getFullYear()))
                             </script>
-                        </span> Marshanda 0706012210056 & Sophia Madlentsy Tambunan 0706012210058</span>
+                        </span>Three Toruz</span>
+                        <p style="font-size: 12px;">Developed by: Marshanda 0706012210056 & Sophia Madlentsy Tambunan 0706012210058</p>
                 </div>
 
                 <!-- Links -->

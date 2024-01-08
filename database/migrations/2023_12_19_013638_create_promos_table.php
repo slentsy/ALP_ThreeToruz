@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('promos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nama_promo');
-            $table->decimal('diskon')->nullable();
+            $table->string('image');
+            $table->string('name');
+            $table->integer('price')->nullable();
             $table->date('tanggal_mulai')->nullable();
             $table->date('tanggal_berakhir')->nullable();
-            $table->text('deskripsi_promo')->nullable();
+            $table->text('description')->nullable();
         });
     }
 

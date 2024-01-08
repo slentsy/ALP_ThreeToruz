@@ -13,13 +13,12 @@ class Article extends Model
     [
         'judul_article',
         'deskripsi_article', 
-        'tanggal_publish', 
         'gambar'
     ];
 
     // ini method untuk relasi article ke produk
-    public function produk()
+    public function produks()
     {
-        return $this->belongsTo(Produk::class);
+        return $this->belongsToMany(Produk::class);
     }
 }

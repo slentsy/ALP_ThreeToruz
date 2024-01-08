@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('produk_id')->nullable();
             $table->string('judul_article');
             $table->text('deskripsi_article');
-            $table->date('tanggal_publish');
-            $table->text('gambar');
+            $table->string('gambar');
             $table->timestamps();
         });
     }

@@ -14,45 +14,29 @@
 
     <div>
         <div class="container" style="padding: 100px;">
-            <form method="POST" action="{{ route('product_update', $productEdit) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('article_update', $articleEdit) }}" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="form-group">
-                    <label for="foto_produk" class="form-label">Update Product Image</label>
-                    <input class="form-control" type="file" name="foto_produk" id="foto_produk"
-                        accept="image/jpg, image/png, image/jpeg" onchange="previewImage()" value="{{$productEdit->foto_produk}}" required>
+                    <label for="gambar" class="form-label">Update Article Image</label>
+                    <input class="form-control" type="file" name="gambar" id="gambar"
+                        accept="image/jpg, image/png, image/jpeg" onchange="previewImage()" value="{{$articleEdit->gambar}}" required>
                     <img class="img-preview img-fluid mb-3 col-sm-5" id="img-preview"
-                        src="{{ asset('storage/' . $productEdit->foto_produk) }}" alt="">
+                        src="{{ asset('storage/' . $articleEdit->gambar) }}" alt="">
                     <!-- Menampilkan gambar yang sudah ada -->
                 </div>
                 <div class="form-group">
-                    <label label for="nama_produk" class="form-label">Product Name</label>
-                    <input type="text" class="form-control" name="nama_produk" value="{{ $productEdit->nama_produk }}">
+                    <label label for="judul_article" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="judul_article" value="{{ $articleEdit->judul_article }}">
                 </div>
+                
                 <div class="form-group">
-                    <label label for="harga_produk" class="form-label">Product Price</label>
-                    <input type="number" class="form-control" name="harga_produk" value="{{ $productEdit->harga_produk }}">
+                    <label label for="deskripsi_article" class="form-label">Article Content</label>
+                    <textarea class="form-control" name="deskripsi_article">{{ $articleEdit->deskripsi_article }}</textarea>
                 </div>
-                <div class="form-group">
-                    <label label for="deskripsi_produk" class="form-label">Product Description</label>
-                    <textarea class="form-control" name="deskripsi_produk">{{ $productEdit->deskripsi_produk }}</textarea>
-                </div>
-                <div class="form-group">
-                    <label label for="highlights_produk" class="form-label">
-                        Highlights Product:
-                        <input id="highlights_produk" type="checkbox" name="highlights_produk" {{ $productEdit->highlights_produk ? 'checked' : '' }}>
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="category_id" class = "form-label">Product Category</label>
-                    <select name="category_id" id="category_id">
-                        @foreach ($categoryEdit as $category)
-                            <option value = "{{ $category->id }}"{{ $category->id == $productEdit->category_id ? 'selected' : '' }}>{{ $category->category_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                
 
-                <input type="button" class="btn btn-default" onclick="window.location='{{ route('product_view') }}'"
+                <input type="button" class="btn btn-default" onclick="window.location='{{ route('article_view') }}'"
                     value="Cancel">
                 <button type="submit" class="btn btn-success" value="Save">Save</button>
             </form>
@@ -68,7 +52,7 @@
     });
 
     function previewImage() {
-        const image = document.querySelector('#foto_produk');
+        const image = document.querySelector('#gambar');
         const imgPreview = document.querySelector('#img-preview');
 
         imgPreview.style.display = 'block';
