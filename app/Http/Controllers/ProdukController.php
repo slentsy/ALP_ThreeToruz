@@ -145,6 +145,8 @@ class ProdukController extends Controller
     {
         $productDetail = Produk::find($id);
         $highlights = Produk::where('highlights_produk', true)->get();
+        $articles = $productDetail->articlesProduk;
+
         
 
         if (!$productDetail) {
@@ -159,7 +161,8 @@ class ProdukController extends Controller
             "productDetail" => $productDetail,
             "reviews" => $reviews,
             'categories' => Category::all(),
-            'highlights' => $highlights
+            'highlights' => $highlights,
+            'articles' => $articles
         ]);
     }
 }

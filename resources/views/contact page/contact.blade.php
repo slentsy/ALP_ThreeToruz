@@ -23,7 +23,8 @@
                                     <i class="fa fa-map-marker" style="font-size:48px;color:#332416"></i>
                                     <h5 class="card-title">Address</h5>
                                     <p class="card-text">Citraland, Surabaya Barat</p>
-                                    <a href="#" class="btn btn-primary">See On Map</a>
+                                    <a href="https://www.google.com/maps/place/Universitas+Ciputra+Surabaya/@-7.2855872,112.5934928,14z/data=!4m10!1m2!2m1!1sciputr!3m6!1s0x2dd7fde455555555:0xd7e2611ae591f046!8m2!3d-7.2855872!4d112.6316016!15sCgdjaXB1dHJhIgOIAQGSARJwcml2YXRlX3VuaXZlcnNpdHngAQA!16s%2Fg%2F121g71h_?entry=ttu" 
+                                    class="btn btn-primary" target="_blank">See On Map</a>
                                     {{-- gmaps --}}
                                 </div>
                             </div>
@@ -33,8 +34,8 @@
                                 <div class="card-body">
                                     <i class="fa fa-phone" style="font-size:48px;color:#332416"></i>
                                     <h5 class="card-title">Call Us</h5>
-                                    <p class="card-text">+62 (___ ____ ____)</p>
-                                    <a href="#" class="btn btn-primary">Call Now</a>
+                                    <p class="card-text">+62 812-4711-8385</p>
+                                    <a href="https://wa.me/6281247118385" class="btn btn-primary" target="_blank">Call Now</a>
                                     {{-- phone number --}}
                                 </div>
                             </div>
@@ -59,7 +60,7 @@
                                     <i class="fa fa-external-link" style="font-size:48px;color:#332416"></i>
                                     <h5 class="card-title">Socials</h5>
                                     <p class="card-text"><i class="fa fa-instagram" style="font-size:20px"></i> @threetoruz </p>
-                                    <a href="#" class="btn btn-primary">Visit Our Social Media</a>
+                                    <a href="https://www.instagram.com/threetoruz/" class="btn btn-primary" target="_blank">Visit Our Social Media</a>
                                     {{-- taruh link tree --}}
                                 </div>
                             </div>
