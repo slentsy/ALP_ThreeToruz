@@ -43,4 +43,9 @@ class Produk extends Model
         return $this->belongsToMany(Article::class);
     }
 
+    public function articlesProduk()
+    {
+        return $this->hasMany(ArticleProduk::class);
+    }
+
 }

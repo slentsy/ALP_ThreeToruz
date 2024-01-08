@@ -74,6 +74,7 @@
                     {{-- <li class="nav-item {{ Request::segment(1) == '/banner/read' ? 'active' : '' }}">
                         <a class="nav-link" href="/banner/read">ADMIN</a>
                     </li> --}}
+                    @auth
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,6 +92,41 @@
                             <li><a class="dropdown-item" href="/funfact_view">Products & Articles</a></li>
                         </ul>
                     </div>
+                    @endauth
+                    <ul>
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> --}}
+                                </li>
+                            @endif
+    
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    {{-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> --}}
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+    
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+    
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
                 </ul>
             </div>
         </div>
@@ -119,9 +155,8 @@
                         <img src="../assets/images/brand/logo/logo.svg" alt="" class="logo-inverse ">
                         <div class="mt-4">
                             <h3 class="fw-bold mb-3">THREE TORUZ</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                ullamcorper mattis, pulvinar dapibus leo.
-                            </p>
+                            <p>Savour The Sweetness, Share The Joy</p>
+                            <p>✨DONAT UBI SURABAYA✨</p>
                             <!-- social media -->
                             <div class="fs-4 mt-4">
                                 <!--Facebook-->
@@ -178,9 +213,9 @@
 
                         <p> <i class="fa fa-map-marker"></i> Citraland, Surabaya Barat</p>
 
-                        <p class="mb-1"> <i class="fa fa-envelope"></i> Email: <a
-                                href="mailto:gki.mojokerto@gmail.com">threetoruz@gmail.com</a></p>
-                        <p><i class="fa fa-phone"></i> Phone: <span class=" fw-semibold">+62 (?)</span></p>
+                        {{-- <p class="mb-1"> <i class="fa fa-envelope"></i> Email: <a
+                                href="mailto:gki.mojokerto@gmail.com">threetoruz@gmail.com</a></p> --}}
+                        <p><i class="fa fa-phone"></i> Phone: <span class=" fw-semibold">+62 812-4711-8385</span></p>
 
                     </div>
                 </div>
